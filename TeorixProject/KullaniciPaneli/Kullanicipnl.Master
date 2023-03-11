@@ -1,0 +1,55 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Kullanicipnl.master.cs" Inherits="TeorixProject.KullaniciPaneli.Kullanicipnl" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="../AdminPanel/Assets/fontawesome/css/all.css" rel="stylesheet" />
+    <link href="../Kullanıcı.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <div class="header">
+                <div class="logo">
+                    Teorix
+                </div>
+                <div class="menu">
+                    <asp:Panel ID="pnl_girisvar" runat="server" Visible="false">
+                         <a href="#"><asp:Label ID="lbl_username0" runat="server"></asp:Label></a>
+                    
+                  <label style="padding-left:20px"> <asp:LinkButton runat="server" ID="lbtn_cikis" OnClick="lbtn_cikis_Click"> <i style=" padding-right:3px;" class="fa-solid fa-right-from-bracket"></i>Çıkış</asp:LinkButton></label>
+                    </asp:Panel>
+                    <asp:Panel runat="server" ID="pnl_girisyok" CssClass="girisyok">
+                        <a href="KullaniciGiris.aspx">Giriş Yap</a>
+                        <a style="margin-left:10px;" href="#">Kayıt Ol</a>
+                    </asp:Panel>
+                 
+                    
+                   
+                    
+                </div>
+            </div>
+            <div class="menuitem">
+                <a href="Index.aspx">Tümü</a>
+                <a href="Diziler.aspx">Diziler</a>
+                <a href="Filmler.aspx">Filmler</a>
+                <a href="Kitaplar.aspx">Kitaplar</a>
+            </div>
+            
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+                
+        </div>
+    </form>
+</body>
+</html>

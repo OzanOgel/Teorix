@@ -1,0 +1,197 @@
+﻿body {
+    margin:0;
+    padding:0;
+}
+.header {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 86%;
+    height: 74px;
+    /* border: 1px solid #FCFCFC;*/
+
+    color: #916EC9;
+    border-top: 1px solid silver;
+    border-bottom: 1px solid silver;
+}
+.logo {
+    float: left;
+    padding-top: 16px;
+    font-size: 25pt;
+    margin-left: 10px;
+    font-family: 'Tilt Prism', cursive;
+    padding-right: 30px;
+}
+.menu {
+    float: right;
+    color: #6B12A6;
+    font-size: 13pt;
+    font-family:Calibri;
+    margin-top:30px;
+    margin-right:10px;
+   
+    
+
+}
+.menuitem {
+    margin-left: 60px;
+}
+.menuitem a {
+    color: rebeccapurple;
+    text-decoration:none;
+    font-size:13pt;
+    padding-left:20px;
+    padding-right:20px;
+   
+
+        
+}
+    .menuitem a:hover {
+        color: #B530F7;
+        text-decoration:underline;
+    }
+.yapi {
+ display:inline;
+}
+.girisyok a{
+    padding:10px 25px;
+    text-decoration:none;
+    border:1px solid mediumpurple;
+    color:mediumpurple
+    
+}
+    .girisyok a:hover{
+        text-decoration:underline;
+        border:2px solid mediumpurple;
+    }
+    .teorinone {
+        border: 2px solid silver;
+        width: 60%;
+        height: 100px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 80px;
+        text-align: center;
+        color: gray;
+        font-size: 18pt;
+    }
+    .teorinone label {
+        top: 32px;
+        position: relative;
+    }
+.Teoriler{
+    margin-top:40px;
+    font-family:Calibri;
+    font-size:13pt;
+}
+.contanierTeoriler {
+    padding:8px 8px 8px 8px;
+    max-height: 400px;
+    min-height: 100px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+   border-radius:10px;
+   border:2px solid gray;
+   font-family:Calibri;
+}
+.teoribilgiler ul li {
+    display:inline-block;
+}
+.isim {
+    margin-left: 180px;
+    font-size: 20pt;
+    font-family: 'Ubuntu', sans-serif;
+    margin-bottom:10px;
+}
+.teoribilgiler{
+    float:right;
+}
+.teoribilgiler ul {
+    text-decoration:none;
+    color:#808080bb;
+    margin-right:170px;
+    
+
+}
+    .teoribilgiler ul li a{
+        text-decoration:none;
+    }
+.textbox-style{
+    
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        padding: 10px;
+        margin-left:auto;
+        margin-top:auto;
+}
+.comment-section {
+    border-radius: 13px;
+    padding: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.textbox-label {
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    padding: 5px 10px;
+    font-size: 19pt;
+    color: rgba(0, 0, 0, 0.5);
+    background-color: #f2f2f2;
+    border-radius: 10px;
+}
+
+#comment-box {
+    font-size: 13pt;
+}
+auto{
+    margin-left:auto;
+    margin-right:auto;
+}
+.girisvar {
+    min-height:150px;
+    max-height:500px;
+    margin-top:50px;
+    margin-left:auto;
+    margin-right:auto;
+    width:80%;
+    padding: 20px;
+    border: 1px solid teal;
+}
+    .girisvar .forminput {
+        margin-left:100px;
+        vertical-align: bottom;
+        margin-bottom: 10px;
+        width: 80%;
+        min-height: 80px;
+        max-height: 400px;
+        font-size:13pt;
+    }
+
+    .girisvar .formbutton {
+        margin-top: 10px;
+        float: none !important;
+        padding: 10px 20px !important;
+        border: 1px solid purple;
+        border-radius: 4px;
+        margin-left: 500px;
+        background-color: #6b12a682;
+        text-decoration: none;
+        color: black;
+    }
+        .girisvar .formbutton:hover {
+            background-color: #B530F7;
+            text-decoration: underline;
+        }
+
+
+
+ 
+
+
+

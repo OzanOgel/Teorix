@@ -1,0 +1,247 @@
+﻿body {
+}
+
+table {
+    border-collapse: collapse;
+    font-family: Tahoma, Geneva, sans-serif;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    width:100%;
+   
+        
+}
+
+   
+   
+
+    table td {
+        padding: 15px;
+        min-height: 270px;
+        min-width: 50px;
+        max-height: 400px;
+        max-width: 100px;
+        word-wrap:break-word;
+    }
+
+    table thead tr th {
+        background-color: #54585d;
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 13px;
+        border: 1px solid #54585d;
+        
+    }
+
+    table tbody td {
+        color: #636363;
+        border: 1px solid #dddfe1;
+    }
+    table tr {
+        background-color: #f9fafb;
+    }
+    table tbody tr:hover {
+        background-color: #E4E4E4;
+    }
+.btn_uye {
+    background-color: #007474;
+    border: 2px solid orange;
+    border-radius: 8px;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12pt;
+    font-family: Verdana;
+    margin: 4px 2px;
+}
+    .btn_uye:hover {
+       color:orange;
+       text-decoration:underline;
+           
+    }
+    .buttons{
+        margin-left:610px;
+        margin-top:50px;
+    }
+        .buttonsUye {
+        margin-top: 60px;
+        margin-left: 610px;
+        }   
+
+        .buttons2 {
+            margin-top:60px;
+         margin-left:510px;
+        }
+.icerik {
+    background-color: #007BA4;
+    border-radius: 3px;
+    color: white;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    font-family: Verdana;
+    margin: 4px 2px;
+}
+.sil {
+    background-color: red;
+    border-radius: 3px;
+    color: white;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    font-family: Verdana;
+    margin: 4px 2px;
+}
+.bankaldir {
+    background-color: forestgreen;
+    border-radius: 3px;
+    color: white;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    font-family: Verdana;
+    margin: 4px 2px;
+    
+}
+.tablelayout {
+    margin-top: 80px;
+    margin-left: 100px;
+    overflow-y: scroll;
+    width: 90%;
+    height: 500px;
+}
+.tablelayoutUye {
+    margin-top: 80px;
+    margin-left: 100px;
+    overflow-y: scroll;
+    width: 80%;
+    height: 500px;
+}
+.tablelayoutTeori {
+    margin-left: 100px;
+    margin-top: 60px;
+    overflow-y: scroll;
+    width: 90%;
+    height: 500px;
+}
+    .tablelayoutYapim {
+        width:70%;
+        height:500px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right:auto;
+    overflow-y:scroll;
+    }
+.yapimekle{
+    margin-top:50px;
+    margin-left:650px;
+    
+}
+.yapimbaslik {
+    width: 500px;
+    height: 45px;
+    background-color: #6363635c;
+    margin-left: auto;
+    margin-right: auto;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+    .yapimbaslik h2 {
+        text-align: center;
+
+    }
+.contanieryapim {
+    width: 498px;
+    height: 570px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #6363635c;
+    
+}
+    .contanieryapim h4{
+       color:gray;
+       
+
+    }
+    .row{
+        margin-left:30px;
+        margin-top:20px;
+        padding-top:30px;
+    }
+        .row label {
+            font-family: Calibri;
+            font-size: 15pt;
+            color: gray;
+            margin-left: 75px;
+           
+        }
+.inputBox {
+    width: 220px;
+    height:25px;
+}
+.file{
+    margin-left:30px;
+}
+.dlltb{
+    margin-left:100px;
+    
+}
+#YapimEkle{
+    margin-top:60px;
+    margin-left:70px;
+}
+.yapimekle2 {
+    background-color: #007474;
+    border: 2px solid orange;
+    border-radius: 8px;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12pt;
+    font-family: Verdana;
+    margin: 4px 2px;
+}
+.basarili {
+    width: 350px;
+    height: 80px;
+    background-color: forestgreen;
+    margin-left: -30px;
+    margin-top: 30px;
+    border: 1px solid black;
+    text-align: center;
+    border-radius:4px;
+}
+.lblbasarili{
+   margin-top:25px;
+    color:white;
+    font-size:13pt;
+
+}
+.basarisiz {
+    width: 350px;
+    height: 80px;
+    background-color: red;
+    margin-left: -30px;
+    margin-top: 30px;
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 4px;
+}
+.lblbasarisiz {
+    margin-top: 25px;
+    color: white;
+    font-size: 13pt;
+}
+
+
+    
+
+
+
+
+  
+   
+    
+
+      

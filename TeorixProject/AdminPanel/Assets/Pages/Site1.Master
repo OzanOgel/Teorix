@@ -1,0 +1,43 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="TeorixProject.AdminPanel.Assets.Pages.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Teorix(Yonetici Paneli)</title>
+    <link href="../CSS/MasterPageCss.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="../fontawesome/css/all.min.css" rel="stylesheet" />
+    <link href="../fontawesome/css/all.css" rel="stylesheet" />
+   <link href="../CSS/MainCss.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+    <form id="form1" runat="server">
+        
+            <div class="header">
+                <span class="Logo">Teorix Yetkili Paneli</span> 
+               <asp:LinkButton ID="lbtn_çikis" runat="server" CssClass="lbtn" OnClick="lbtn_çikis_Click"><i class="fa-solid fa-right-from-bracket"></i>Çıkış</asp:LinkButton>
+                 <asp:Label ID="lbl_Yetkili" runat="server" CssClass="lbl"></asp:Label>
+            </div>
+            <div class="Headerbar">
+                <div class="linkler">
+                    <div class="menuitem"> <a href="TeoriListele.aspx">Teori Listele</a></div>
+                    <div  class="menuitem"><a href="UyeListele.aspx">Üye Listele</a></div>
+                     <div  class="menuitem"><a href="YapımListele.aspx">Yapım Listele</a></div>
+                     <div  class="menuitem"><a href="YanıtOnayBekleyenler.aspx">Yanıt Listele</a></div>
+                    <asp:Panel ID="pnl_Yonetici" runat="server" CssClass="menuitem"><a href="YoneticilerAktif.aspx">Moderatör Listele</a></asp:Panel>
+                    
+                </div>
+                
+               
+            </div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        
+    </form>
+</body>
+</html>

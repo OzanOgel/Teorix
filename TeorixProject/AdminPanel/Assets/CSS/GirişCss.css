@@ -1,0 +1,101 @@
+﻿body {
+}
+*{
+    margin:0;
+    padding:0;
+}
+.textboxlar {
+    margin-top:20px;
+}
+.contanier {
+    margin-top: 150px;
+    margin-left: 570px;
+    border-right: 1px solid #007474;
+    border-bottom: 1px solid #007474;
+    border-left: 1px solid #007474;
+    width: 20%;
+    height: 350px;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    -webkit-box-shadow: -2px 12px 38px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: -2px 12px 38px 0px rgba(0,0,0,0.75);
+    box-shadow: -2px 12px 38px 0px rgba(0,0,0,0.75);
+}
+.Textbox {
+    margin-left:25px;
+    margin-top: 10px;
+    display: block;
+    width: 250px;
+    height:30px;
+    border-radius:6px;
+    border-color:orange;
+}
+.Yazi {
+    background-color: #007474;
+    width: 100%;
+    color: orange;
+    text-align: center;
+    height: 50px;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    border-bottom:1px solid orange;
+}
+.Yazi h2{
+    padding:10px 0 0 0;
+}
+.loginButton {
+    color: orange;
+    text-decoration: none;
+    margin-left: 100px;
+    background-color: #007474;
+    border:1px solid orange;
+    padding:10px 20px 10px 20px;
+}
+.login {
+    margin-top: 30px;
+    
+}
+.loginButton:hover {
+    color: #007474;
+    text-decoration: none;
+    margin-left: 100px;
+    background-color: orange;
+    border: 1px solid orange;
+    padding: 10px 20px 10px 20px;
+}
+.baslik {
+    color: black;
+    font-family: 'Anton', sans-serif;
+    margin-left: 541px;
+    margin-top: 20px;
+}
+.hata {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left:24px;
+    padding: 20px;
+    border: 1px solid #002333;
+    background-color: red;
+    color: #002333;
+    border-radius: 2px;
+    width: 70%;
+    height:20px;
+}
+.hatametin{
+    text-align:center;
+    color:white;
+    margin-left:50px;
+}
+.tittle h1{
+    top:100px;
+    position:relative;
+}
+    
+    
+   
+    
+
+
+

@@ -1,0 +1,12 @@
+C:\Users\ozano\source\repos\TeorixProject\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\ozano\source\repos\TeorixProject\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\ozano\source\repos\TeorixProject\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.AssemblyReference.cache
+C:\Users\ozano\source\repos\TeorixProject\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\ozano\source\repos\TeorixProject\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\ozano\source\repos\TeorixProject\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\ozano\Documents\GitHub\TeorixProject\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\ozano\Documents\GitHub\TeorixProject\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\ozano\Documents\GitHub\TeorixProject\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.AssemblyReference.cache
+C:\Users\ozano\Documents\GitHub\TeorixProject\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\ozano\Documents\GitHub\TeorixProject\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\ozano\Documents\GitHub\TeorixProject\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
