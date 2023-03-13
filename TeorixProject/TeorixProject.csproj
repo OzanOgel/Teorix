@@ -2136,11 +2136,12 @@
     <Content Include="KullaniciPaneli\Diziler.aspx" />
     <Content Include="KullaniciPaneli\Filmler.aspx" />
     <Content Include="KullaniciPaneli\Index.aspx" />
+    <Content Include="KullaniciPaneli\KayitForm.aspx" />
     <Content Include="KullaniciPaneli\Kitaplar.aspx" />
     <Content Include="KullaniciPaneli\KullaniciGiris.aspx" />
     <Content Include="KullaniciPaneli\TeorileriGoruntule.aspx" />
-    <Content Include="KullaniciPaneli\Yanitlar.aspx" />
-    <Content Include="Kullanıcı.css" />
+    <Content Include="KullaniciPaneli\YanitGoruntule.aspx" />
+    <Content Include="KullaniciPaneli\Assets\Css\Kullanıcı.css" />
     <Content Include="YapimResimleri\none.png" />
     <Content Include="AdminPanel\Assets\Images\Çıkış.png" />
     <Content Include="AdminPanel\Assets\Pages\GirişYap.aspx" />
@@ -2272,6 +2273,13 @@
     <Compile Include="KullaniciPaneli\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KullaniciPaneli\KayitForm.aspx.cs">
+      <DependentUpon>KayitForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KullaniciPaneli\KayitForm.aspx.designer.cs">
+      <DependentUpon>KayitForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KullaniciPaneli\Kitaplar.aspx.cs">
       <DependentUpon>Kitaplar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2300,12 +2308,12 @@
     <Compile Include="KullaniciPaneli\TeorileriGoruntule.aspx.designer.cs">
       <DependentUpon>TeorileriGoruntule.aspx</DependentUpon>
     </Compile>
-    <Compile Include="KullaniciPaneli\Yanitlar.aspx.cs">
-      <DependentUpon>Yanitlar.aspx</DependentUpon>
+    <Compile Include="KullaniciPaneli\YanitGoruntule.aspx.cs">
+      <DependentUpon>YanitGoruntule.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="KullaniciPaneli\Yanitlar.aspx.designer.cs">
-      <DependentUpon>Yanitlar.aspx</DependentUpon>
+    <Compile Include="KullaniciPaneli\YanitGoruntule.aspx.designer.cs">
+      <DependentUpon>YanitGoruntule.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

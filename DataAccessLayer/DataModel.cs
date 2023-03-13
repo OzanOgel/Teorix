@@ -20,8 +20,33 @@ namespace DataAccessLayer
         }
 
         #region Teori Işlemleri
-       
-       
+
+        public bool TeoriSayisiArttir(int uyeid)
+        {
+            try
+            {
+                cmd.CommandText = "select ToplamTeoriSayısı from Uyeler where ID = @id";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", uyeid);
+                con.Open();
+                int sayi = Convert.ToInt32(cmd.ExecuteScalar());
+                sayi = sayi + 1;
+                cmd.CommandText = "update Uyeler set ToplamTeoriSayısı =@sayi where ID =@id";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", uyeid);
+                cmd.Parameters.AddWithValue("@sayi", sayi);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
         public bool teoriekle(Teoriler t)
         {
             try
@@ -34,7 +59,7 @@ namespace DataAccessLayer
                 cmd.Parameters.AddWithValue("@içerik", t.içerik);
                 cmd.Parameters.AddWithValue("@begenisayisi", t.Begeni_Sayisi);
                 cmd.Parameters.AddWithValue("@yanitsayisi", t.Yanit_Sayisi);
-                cmd.Parameters.AddWithValue("@aktiflik",1);
+                cmd.Parameters.AddWithValue("@aktiflik", 1);
                 cmd.Parameters.AddWithValue("@Yapim_ID", t.Yapım_ID);
                 cmd.Parameters.AddWithValue("@uyeid", t.Uye_ID);
                 con.Open();
@@ -58,7 +83,7 @@ namespace DataAccessLayer
             con.Open();
             int sayi = Convert.ToInt32(cmd.ExecuteScalar());
             con.Close();
-            return  sayi;
+            return sayi;
         }
         public List<Teoriler> TeoriListeleYapim(int yapim_ID)
         {
@@ -89,7 +114,7 @@ namespace DataAccessLayer
                     t.Yapım_ID = reader.GetInt32(12);
                     t.Yapım = reader.GetString(13);
                     t.KullaniciAdi = reader.GetString(14);
-                    t.tarihstr  = reader.GetDateTime(5).ToString().TrimEnd('0', ':');
+                    t.tarihstr = reader.GetDateTime(5).ToString().TrimEnd('0', ':');
                     teorilistesi.Add(t);
 
                 }
@@ -268,8 +293,49 @@ namespace DataAccessLayer
         #endregion
 
         #region Uye İşlemleri
+
+
+        public int Kullaniciadikontrol(string kullaniciadi)
+        {
+            cmd.CommandText = "select COUNT(*) from Uyeler where Kullanici_Adi =@kullaniciadi";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("kullaniciadi", kullaniciadi);
+            con.Open();
+            int sayi = Convert.ToInt32(cmd.ExecuteScalar());
+            con.Close();
+            return sayi;
+        }
+
+        public bool uyeekle(Uyeler u)
+        {
+            try
+            {
+                cmd.CommandText = "insert into Uyeler(Eposta,şifre,isim,SoyIsim,KayıtOlmaTarihi,ToplamTeoriSayısı,aktiflik,Kullanici_Adi) values(@Eposta,@sifre,@isim,@SoyIsim,@KayıtOlmaTarihi,@ToplamTeoriSayısı,1,@Kullanici_Adi)";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Eposta",u.KullaniciAdi);
+                cmd.Parameters.AddWithValue("@sifre",u.şifre);
+                cmd.Parameters.AddWithValue("@isim",u.isim);
+                cmd.Parameters.AddWithValue("@SoyIsim",u.soyisim);
+                cmd.Parameters.AddWithValue("@KayıtOlmaTarihi",u.KayitOlmaTarihi);
+                cmd.Parameters.AddWithValue("@ToplamTeoriSayısı",0);
+                cmd.Parameters.AddWithValue("@Kullanici_Adi",u.KullaniciAdi);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                return true;
+                
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
         public Uyeler uyegiriş(string mail, string sifre)
         {
+            
             try
             {
                 cmd.CommandText = "SELECT COUNT(*) FROM Uyeler WHERE Eposta = @mail and şifre=@sifre";
@@ -278,32 +344,34 @@ namespace DataAccessLayer
                 cmd.Parameters.AddWithValue("@sifre", sifre);
                 con.Open();
                 int sayi = Convert.ToInt32(cmd.ExecuteScalar());
-                if(sayi > 0)
+                if (sayi > 0)
                 {
-                    cmd.CommandText = "select ID,Eposta,şifre,isim,SoyIsim,DogumTarihi,KayıtOlmaTarihi,ToplamTeoriSayısı,aktiflik,Kullanici_Adi from Uyeler";
+                    cmd.CommandText = "select ID,Eposta,şifre,isim,SoyIsim,KayıtOlmaTarihi,ToplamTeoriSayısı,aktiflik,Kullanici_Adi from Uyeler where Eposta = @mail and şifre = @sifre";
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@mail", mail);
                     cmd.Parameters.AddWithValue("@sifre", sifre);
+
                     SqlDataReader reader = cmd.ExecuteReader();
                     Uyeler u = new Uyeler();
                     while (reader.Read())
+
                     {
                         u.ID = reader.GetInt32(0);
                         u.Eposta = reader.GetString(1);
-                        u.şifre=reader.GetString(2);
+                        u.şifre = reader.GetString(2);
                         u.isim = reader.GetString(3);
                         u.soyisim = reader.GetString(4);
-                        u.DogumTarihi = reader.GetDateTime(5);
-                        u.KayitOlmaTarihi = reader.GetDateTime(6);
-                        u.ToplamTeoriSayısı = reader.GetInt32(7);
-                        u.aktiflik = reader.GetBoolean(8);
-                        u.AktiflikStr = reader.GetBoolean(8) ? "<label style='color:green'>Aktif</label>" : "<label style='color:red'>Pasif</label>";
-                        u.KullaniciAdi = reader.GetString(9);
+                       
+                        u.KayitOlmaTarihi = reader.GetDateTime(5);
+                        u.ToplamTeoriSayısı = reader.GetInt32(6);
+                        u.aktiflik = reader.GetBoolean(7);
+                        u.AktiflikStr = reader.GetBoolean(7) ? "<label style='color:green'>Aktif</label>" : "<label style='color:red'>Pasif</label>";
+                        u.KullaniciAdi = reader.GetString(8);
                     }
                     return u;
                 }
                 else { return null; }
-                
+
             }
 
             catch
@@ -372,7 +440,7 @@ namespace DataAccessLayer
             try
             {
                 List<Uyeler> uyelist = new List<Uyeler>();
-                cmd.CommandText = "select Kullanici_Adi , Eposta,şifre,isim,SoyIsim,DogumTarihi,KayıtOlmaTarihi,ToplamTeoriSayısı,aktiflik,ID from Uyeler where aktiflik=@id";
+                cmd.CommandText = "select Kullanici_Adi , Eposta,şifre,isim,SoyIsim,KayıtOlmaTarihi,ToplamTeoriSayısı,aktiflik,ID from Uyeler where aktiflik=@id";
 
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@id", id);
@@ -386,12 +454,12 @@ namespace DataAccessLayer
                     u.şifre = reader.GetString(2);
                     u.isim = reader.GetString(3);
                     u.soyisim = reader.GetString(4);
-                    u.DogumTarihi = reader.GetDateTime(5);
-                    u.KayitOlmaTarihi = reader.GetDateTime(6);
-                    u.ToplamTeoriSayısı = reader.GetInt32(7);
-                    u.aktiflik = reader.GetBoolean(8);
-                    u.AktiflikStr = reader.GetBoolean(8) ? "<label style='color:green'>Aktif</label>" : "<label style='color:gray'>Pasif</label>";
-                    u.ID = reader.GetInt32(9);
+                   
+                    u.KayitOlmaTarihi = reader.GetDateTime(5);
+                    u.ToplamTeoriSayısı = reader.GetInt32(6);
+                    u.aktiflik = reader.GetBoolean(7);
+                    u.AktiflikStr = reader.GetBoolean(7) ? "<label style='color:green'>Aktif</label>" : "<label style='color:gray'>Pasif</label>";
+                    u.ID = reader.GetInt32(8);
                     uyelist.Add(u);
 
                 }
@@ -411,7 +479,7 @@ namespace DataAccessLayer
             try
             {
                 List<Uyeler> uyelist = new List<Uyeler>();
-                cmd.CommandText = "select Kullanici_Adi , Eposta,şifre,isim,SoyIsim,DogumTarihi,KayıtOlmaTarihi,ToplamTeoriSayısı,aktiflik,ID from Uyeler";
+                cmd.CommandText = "select Kullanici_Adi , Eposta,şifre,isim,SoyIsim,KayıtOlmaTarihi,ToplamTeoriSayısı,aktiflik,ID from Uyeler";
 
                 cmd.Parameters.Clear();
 
@@ -425,12 +493,12 @@ namespace DataAccessLayer
                     u.şifre = reader.GetString(2);
                     u.isim = reader.GetString(3);
                     u.soyisim = reader.GetString(4);
-                    u.DogumTarihi = reader.GetDateTime(5);
-                    u.KayitOlmaTarihi = reader.GetDateTime(6);
-                    u.ToplamTeoriSayısı = reader.GetInt32(7);
-                    u.aktiflik = reader.GetBoolean(8);
-                    u.AktiflikStr = reader.GetBoolean(8) ? "<label style='color:green'>Aktif</label>" : "<label style='color:gray'>Pasif</label>";
-                    u.ID = reader.GetInt32(9);
+                   
+                    u.KayitOlmaTarihi = reader.GetDateTime(5);
+                    u.ToplamTeoriSayısı = reader.GetInt32(6);
+                    u.aktiflik = reader.GetBoolean(7);
+                    u.AktiflikStr = reader.GetBoolean(7) ? "<label style='color:green'>Aktif</label>" : "<label style='color:gray'>Pasif</label>";
+                    u.ID = reader.GetInt32(8);
                     uyelist.Add(u);
 
                 }
@@ -567,7 +635,7 @@ namespace DataAccessLayer
                 cmd.Parameters.AddWithValue("@isim", y.Isim);
                 cmd.Parameters.AddWithValue("@resim", y.Resim);
                 cmd.Parameters.AddWithValue("@Aktiflik", y.aktiflik);
-                
+
                 con.Open();
                 cmd.ExecuteReader();
                 return true;
@@ -646,16 +714,16 @@ namespace DataAccessLayer
                 while (reader.Read())
                 {
                     y.ID = reader.GetInt32(0);
-                    y.Tur_ID=reader.GetInt32(1);
-                    y.Yonetici_ID=reader.GetInt32(2);
+                    y.Tur_ID = reader.GetInt32(1);
+                    y.Yonetici_ID = reader.GetInt32(2);
                     y.Isim = reader.GetString(3);
-                    y.Resim=reader.GetString(4);
+                    y.Resim = reader.GetString(4);
                     y.aktiflik = reader.GetBoolean(5);
                     y.AktiflikStr = reader.GetBoolean(5) ? "<label style='color:green'>Aktif</label>" : "<label style='color:red'>Pasif</label>";
                     y.Tur = reader.GetString(6);
                     y.Yonetici = reader.GetString(7);
 
-                    
+
                 }
                 return y;
             }
@@ -688,7 +756,7 @@ namespace DataAccessLayer
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@mail", mail);
                     cmd.Parameters.AddWithValue("@sifre", sifre);
-                   
+
                     SqlDataReader reader = cmd.ExecuteReader();
                     Yoneticiler y = new Yoneticiler();
                     while (reader.Read())
@@ -729,7 +797,7 @@ namespace DataAccessLayer
                 cmd.Parameters.Clear();
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
-                
+
                 while (reader.Read())
                 {
                     Yoneticiler y = new Yoneticiler();
@@ -745,7 +813,7 @@ namespace DataAccessLayer
                     y.YoneticiTur = reader.GetString(8);
                     y.KayitOlmaTarihi = reader.GetDateTime(9);
                     Yoneticilist.Add(y);
-                    
+
                 }
                 return Yoneticilist;
             }
@@ -757,7 +825,7 @@ namespace DataAccessLayer
             {
                 con.Close();
             }
-            
+
         }
         public List<Yoneticiler> YoneticiListele(int id)
         {
@@ -859,7 +927,7 @@ namespace DataAccessLayer
                     Turler t = new Turler();
                     t.ID = reader.GetInt32(0);
                     t.isim = reader.GetString(1);
-                   
+
                     turlerlist.Add(t);
                 }
                 return turlerlist;
@@ -907,7 +975,7 @@ namespace DataAccessLayer
                 while (reader.Read())
                 {
                     Yanitlar y = new Yanitlar();
-                    y.ID=reader.GetInt32(0);
+                    y.ID = reader.GetInt32(0);
                     y.Teori_ID = reader.GetInt32(1);
                     y.Uye_ID = reader.GetInt32(2);
                     y.PaylasilmaTarihi = reader.GetDateTime(3);
@@ -936,7 +1004,7 @@ namespace DataAccessLayer
             {
                 cmd.CommandText = "update Yanitlar set durum = 'Onaylandı' where ID = @id";
                 cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@id" , id);
+                cmd.Parameters.AddWithValue("@id", id);
                 con.Open();
                 cmd.ExecuteNonQuery();
                 cmd.CommandText = "update Yanitlar set aktiflik = 1 where ID = @id";
@@ -944,7 +1012,7 @@ namespace DataAccessLayer
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.ExecuteNonQuery();
                 return true;
-                
+
             }
             catch
             {
@@ -1093,6 +1161,32 @@ namespace DataAccessLayer
             int sayi = Convert.ToInt32(cmd.ExecuteScalar());
             con.Close();
             return sayi;
+        }
+        public bool yanitekle(Yanitlar y)
+        {
+            try
+            {
+                cmd.CommandText = "insert into Yanitlar(Teori_ID,Uye_ID,Yonetici_ID,PaylaşılmaTarihi,içerik,BegeniSayisi,aktiflik,durum) values(@teoriid,@uyeid,1,@paylasilmatarihi,@içerik,@begenisayisi,1,'Onay Bekliyor')";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@teoriid",y.Teori_ID);
+                cmd.Parameters.AddWithValue("@uyeid",y.Uye_ID);
+                
+                cmd.Parameters.AddWithValue("@paylasilmatarihi",y.PaylasilmaTarihi);
+                cmd.Parameters.AddWithValue("@içerik",y.icerik);
+                cmd.Parameters.AddWithValue("@begenisayisi",y.BegeniSayisi);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                return true;
+       
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                con.Close();
+            }
         }
 
         #endregion

@@ -6,7 +6,7 @@
 <head runat="server">
     <title></title>
     <link href="../AdminPanel/Assets/fontawesome/css/all.css" rel="stylesheet" />
-    <link href="../Kullanıcı.css" rel="stylesheet" />
+    <link href="Assets/Css/Kullanıcı.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap" rel="stylesheet">
@@ -31,7 +31,7 @@
                     </asp:Panel>
                     <asp:Panel runat="server" ID="pnl_girisyok" CssClass="girisyok">
                         <a href="KullaniciGiris.aspx">Giriş Yap</a>
-                        <a style="margin-left:10px;" href="#">Kayıt Ol</a>
+                        <a style="margin-left:10px;" href="KayitForm.aspx">Kayıt Ol</a>
                     </asp:Panel>
                  
                     

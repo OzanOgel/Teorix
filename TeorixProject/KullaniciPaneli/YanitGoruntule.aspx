@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/KullaniciPaneli/Kullanicipnl.Master" AutoEventWireup="true" CodeBehind="Yanitlar.aspx.cs" Inherits="TeorixProject.KullaniciPaneli.Yanitlar" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/KullaniciPaneli/Kullanicipnl.Master" AutoEventWireup="true" CodeBehind="YanitGoruntule.aspx.cs" Inherits="TeorixProject.KullaniciPaneli.Yanitlar" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
    
     <style>
@@ -47,13 +47,13 @@
    <asp:Panel ID="pnl_girisvar" runat="server" CssClass="girisvar" >
             <asp:TextBox ID="tb_yorum" runat="server"  CssClass="forminput" TextMode="MultiLine"></asp:TextBox>
             <br /><br />
-            <asp:LinkButton ID="lbtn_yorumYap" runat="server" CssClass="formbutton">Yanıt Paylaş</asp:LinkButton>
+            <asp:LinkButton ID="lbtn_yorumYap" runat="server" CssClass="formbutton" OnClick="lbtn_yorumYap_Click">Yanıt Paylaş</asp:LinkButton>
         </asp:Panel>
-    <asp:Panel ID="pnl_UyeOl" runat="server" Visible="false"></asp:Panel>
-   <div style="margin-top:50px; margin-left:auto; margin-right:auto; width: 800px; height: 100px; text-align: center; font-size: 24px; border: 1px solid red; display: flex; align-items: center; justify-content: center;">
+    <asp:Panel ID="pnl_UyeOl" runat="server" Visible="false"><div style="margin-top:50px; margin-left:auto; margin-right:auto; width: 800px; height: 100px; text-align: center; font-size: 24px; border: 1px solid red; display: flex; align-items: center; justify-content: center;">
   
   <span style="color: red;"> <i class="fa-solid fa-ban"></i> Yanıt Paylaşabilmek için <a href="#" style="text-decoration:none; color: red; color:cornflowerblue; text-decoration:underline;">üye</a> olmalısınız</span>
-</div>
+</div></asp:Panel>
+   
 
     <asp:Panel runat="server" ID="pnl_Teoriyok" CssClass="teorinone" Visible="false">
         <label><i style="padding-right: 20px; font-size: 20pt;" class="fa-solid fa-ban"></i>Bu Yapımla ilgili Teori Paylaşılmamış!</label>

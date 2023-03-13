@@ -6,12 +6,12 @@
         <ItemTemplate>
         
             
-          
+          <div class="cont">
              <div class="yapi">
              <a href="TeorileriGoruntule.aspx?yid=<%# Eval("ID") %>"> <img style="width:183px; height:275px;" src='../YapimResimleri/<%# Eval("Resim") %>'/> <span><%# Eval("isim") %></span> </a>
                 
              </div>
-          
+          </div>
            
             
         </ItemTemplate>

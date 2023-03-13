@@ -34,7 +34,8 @@
 
 }
 .menuitem {
-    margin-left: 60px;
+    margin-top:10px;
+    margin-left: 100px;
 }
 .menuitem a {
     color: rebeccapurple;
@@ -51,9 +52,22 @@
         text-decoration:underline;
     }
 .yapi {
- width:200px;
+    margin-top:60px;
+ width:183px;
  height:300px;
  float:left;
+ margin-left:80px;
+ background-color:black;
+ text-align:center;
+}
+.yapi a{
+    text-decoration:none;
+    color:white;
+}
+.yapi:hover {
+    -webkit-box-shadow: 1px 2px 39px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 2px 39px 0px rgba(0,0,0,0.75);
+    box-shadow: 1px 2px 39px 0px rgba(0,0,0,0.75);
 }
 .girisyok a{
     padding:10px 25px;
@@ -189,6 +203,9 @@ auto{
         .girisvar .formbutton:hover {
             background-color: #B530F7;
             text-decoration: underline;
+        }
+        .cont{
+           margin-left:50px;
         }
 
 

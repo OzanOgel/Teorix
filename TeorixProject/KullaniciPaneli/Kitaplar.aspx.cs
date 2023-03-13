@@ -13,6 +13,7 @@ namespace TeorixProject.KullaniciPaneli
         DataModel dm = new DataModel();
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             rpt_yapimlar.DataSource = dm.YapımLislete(3);
             rpt_yapimlar.DataBind();
 

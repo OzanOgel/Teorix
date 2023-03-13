@@ -106,7 +106,7 @@
                         <ul>
                             <li>Tarih(<%# Eval("tarihstr") %>) |</li>
                             <li>Beğeni Sayısı( <%# Eval("Begeni_Sayisi") %> ) <i class="far fa-heart heart"></i>|</li>
-                            <li><a href="Yanitlar.aspx?tid=<%# Eval("ID") %>">Yanıt Sayısı(<%# Eval("Yanit_Sayisi") %>)</a>
+                            <li><a href="YanitGoruntule.aspx?tid=<%# Eval("ID") %>">Yanıt Sayısı(<%# Eval("Yanit_Sayisi") %>)</a>
 
                             </li>
                         </ul>

@@ -24,7 +24,7 @@
                                 <th>Isim</th>
 
                                 <th>Soy İsim</th>
-                                <th>Dogum Tarihi</th>
+                                
                                 <th>Kayit Olma Tarihi</th>
                                 <th>Toplam Teori Sayısı</th>
                                 <th>Aktiflik</th>
@@ -46,7 +46,7 @@
                     <td><%# Eval("isim") %></td>
 
                     <td><%# Eval("soyisim") %></td>
-                    <td><%# Eval("DogumTarihi") %></td>
+                    
                     <td><%# Eval("KayitOlmaTarihi") %></td>
                     <td><%# Eval("ToplamTeoriSayısı") %></td>
                     <td><%# Eval("AktiflikStr") %></td>

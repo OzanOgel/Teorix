@@ -12,13 +12,25 @@ namespace TeorixProject.KullaniciPaneli
     public partial class Yanitlar : System.Web.UI.Page
     {
         DataModel dm = new DataModel();
+        
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Uyeler"] != null)
+            {
+                pnl_girisvar.Visible = true;
+                pnl_UyeOl.Visible = false;
+            }
+            else
+            {
+                pnl_girisvar.Visible = false;
+                pnl_UyeOl.Visible = true;
+            }
             if (Request.QueryString.Count != 0)
             {
-                int id = Convert.ToInt32(Request.QueryString["yid"]);
+                int id = Convert.ToInt32(Request.QueryString["tid"]);
                 if (dm.YanitSayisi(id) > 0)
                 {
+                   
                     rp_Yanitlarkullanici.DataSource = dm.AktifYanitListele(id);
                     rp_Yanitlarkullanici.DataBind();
                     pnl_Teoriyok.Visible = false;
@@ -29,6 +41,7 @@ namespace TeorixProject.KullaniciPaneli
                     pnl_Teoriyok.Visible = true;
                     pnl_Teoriler.Visible = false;
                 }
+
 
 
             }
@@ -51,6 +64,17 @@ namespace TeorixProject.KullaniciPaneli
 
             rp_Yanitlarkullanici.DataSource = dm.AktifYanitListele(id);
             rp_Yanitlarkullanici.DataBind();
+        }
+        Yanitlar yanit = new Yanitlar();
+
+        protected void lbtn_yorumYap_Click(object sender, EventArgs e)
+        {
+
+            Teoriler t = new Teoriler();
+            Yanitlar y = new Yanitlar();
+            y.te
+            
+            
         }
     }
 }

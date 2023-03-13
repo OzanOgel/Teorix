@@ -109,14 +109,8 @@ namespace TeorixProject.KullaniciPaneli
                         dm.teoriekle(t);
                         pnl_yorumpaylasildi.Visible = true;
                         pnl_yorumpaylasilmadi.Visible = false;
+                        dm.TeoriSayisiArttir(u2.ID);
 
-                    
-                    
-                   
-                    
-                   
-                   
-                    
                     
                 }
                 catch

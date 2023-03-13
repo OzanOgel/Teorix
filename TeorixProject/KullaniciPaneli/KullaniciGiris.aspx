@@ -50,7 +50,7 @@
             height:80px;
             border-top-left-radius:8px;
             border-top-right-radius:8px;
-            colo
+            
         }
         .inc{
             margin-top:20px;
@@ -101,7 +101,7 @@
             <br /><br />
             <asp:LinkButton ID="lb_GirisYap" runat="server" CssClass="girisyap" OnClick="lb_GirisYap_Click">Giriş Yap</asp:LinkButton><br />
             <br />
-            <label>Üye Değilmisin? Hemen <a href="#">Üye Ol</a></label>
+            <label>Üye Değilmisin? Hemen <a href="KayitForm.aspx">Üye Ol</a></label>
             <asp:Panel ID="pnl_hata" runat="server" CssClass="hata" Visible="false"><asp:Label ID="lbl_hata" runat="server" CssClass="hatametin"></asp:Label></asp:Panel>
             
         </div>
