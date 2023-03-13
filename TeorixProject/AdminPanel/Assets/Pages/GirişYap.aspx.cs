@@ -13,7 +13,8 @@ namespace TeorixProject.AdminPanel.Assets.Pages
         DataModel dm = new DataModel();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
+           
         }
 
         protected void lbtn_giris_Click(object sender, EventArgs e)

@@ -12,11 +12,15 @@ namespace TeorixProject.KullaniciPaneli
     public partial class TeorileriGoruntule : System.Web.UI.Page
     {
         
-
+         bool paylasildi = false;
         DataModel dm = new DataModel();
         protected void Page_Load(object sender, EventArgs e)
         {
            
+         
+                pnl_yorumpaylasildi.Visible = false;
+                pnl_yorumpaylasilmadi.Visible = false;
+
             
 
 
@@ -77,24 +81,68 @@ namespace TeorixProject.KullaniciPaneli
 
         protected void lbtn_yorumYap_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(Request.QueryString["yid"]);
-            Uyeler u2 = (Uyeler)Session["Uyeler"];
+           
+           
             
-            Teoriler t = new Teoriler();
-            
-            t.Uye_ID= u2.ID;
-            t.Paylasilma_Tarihi = DateTime.Today;
-            t.aktiflik = true;
-            t.içerik = tb_yorum.Text;
-            t.Yonetici = "Ozi";
-            t.Yonetici_ID = 1;
-            t.Tur_ID = dm.yapimIDyegoreturgetir(id);
-            t.Begeni_Sayisi = 0;
-            t.Yanit_Sayisi = 0;
-            t.Yapım_ID = id;
-            t.tarihstr = DateTime.Now.Date.ToString().TrimEnd('0', ':');
-            dm.teoriekle(t);
+                Uyeler u2 = (Uyeler)Session["Uyeler"];
 
+                Teoriler t = new Teoriler();
+
+            if (!string.IsNullOrEmpty(tb_yorum.Text))
+            {
+                try
+                {
+                    
+                        int id = Convert.ToInt32(Request.QueryString["yid"]);
+                        t.Uye_ID = u2.ID;
+                        t.Paylasilma_Tarihi = DateTime.Today;
+                        t.aktiflik = true;
+                        t.içerik = tb_yorum.Text;
+
+                        t.Yonetici_ID = 1;
+                        t.Tur_ID = dm.yapimIDyegoreturgetir(id);
+                        t.Begeni_Sayisi = 0;
+                        t.Yanit_Sayisi = 0;
+                        t.Yapım_ID = id;
+                        t.tarihstr = DateTime.Now.Date.ToString().TrimEnd('0', ':');
+
+                        dm.teoriekle(t);
+                        pnl_yorumpaylasildi.Visible = true;
+                        pnl_yorumpaylasilmadi.Visible = false;
+
+                    
+                    
+                   
+                    
+                   
+                   
+                    
+                    
+                }
+                catch
+                {
+                    pnl_yorumpaylasilmadi.Visible = true;
+                    lbl_hata.Text = "Teori Paylaşırken Bir Hata Meydana Geldi";
+                    pnl_yorumpaylasildi.Visible = false;
+                    
+
+                }
+               
+
+            }
+            else
+            {
+                pnl_yorumpaylasilmadi.Visible=true;
+                lbl_hata.Text = "Boş Teori Paylaşılamaz";
+                pnl_yorumpaylasildi.Visible=false;
+                
+            }
+
+
+
+
+           
         }
+
     }
 }

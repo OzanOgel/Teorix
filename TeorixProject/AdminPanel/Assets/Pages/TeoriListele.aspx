@@ -49,7 +49,7 @@
                     <td><%# Eval("Yapım") %></td>
                     <td><%# Eval("uyeIsim") %>(<%# Eval("KullaniciAdi") %>)</td>
                     <td><%# Eval("Tur") %></td>
-                    <td><%# Eval("Paylasilma_Tarihi") %></td>
+                    <td><%# Eval("tarihstr") %></td>
 
                     <td><%# Eval("Begeni_Sayisi") %></td>
                     <td><%# Eval("Yanit_Sayisi") %></td>

@@ -17,6 +17,20 @@
             margin-left:auto;
             margin-right:auto;
         }
+        .basarisiz{
+             margin-top:50px;
+            width: 600px;
+            height: 80px;
+            background-color: red;
+            color: white;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border:1px solid black;
+            margin-left:auto;
+            margin-right:auto;
+        }
 
         .heart {
             color: grey;
@@ -66,6 +80,7 @@
         <br />
         <asp:LinkButton ID="lbtn_yorumYap" runat="server" CssClass="formbutton" OnClick="lbtn_yorumYap_Click">Teori Paylaş</asp:LinkButton>
         <asp:Panel ID="pnl_yorumpaylasildi" runat="server" CssClass="basarili">Teori Başarı ile Paylaşıldı</asp:Panel>
+        <asp:Panel ID="pnl_yorumpaylasilmadi" runat="server" CssClass="basarisiz"><asp:Label ID="lbl_hata" runat="server"></asp:Label></asp:Panel>
     </asp:Panel>
     <asp:Panel ID="pnl_UyeOl" runat="server" Visible="false">
         <div style="margin-top: 50px; margin-left: auto; margin-right: auto; width: 800px; height: 100px; text-align: center; font-size: 24px; border: 1px solid red; display: flex; align-items: center; justify-content: center;">
@@ -89,7 +104,7 @@
                     </div>
                     <div class="teoribilgiler">
                         <ul>
-                            <li>Tarih(<%# Eval("Paylasilma_Tarihi") %>) |</li>
+                            <li>Tarih(<%# Eval("tarihstr") %>) |</li>
                             <li>Beğeni Sayısı( <%# Eval("Begeni_Sayisi") %> ) <i class="far fa-heart heart"></i>|</li>
                             <li><a href="Yanitlar.aspx?tid=<%# Eval("ID") %>">Yanıt Sayısı(<%# Eval("Yanit_Sayisi") %>)</a>
 

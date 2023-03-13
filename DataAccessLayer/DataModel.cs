@@ -21,27 +21,7 @@ namespace DataAccessLayer
 
         #region Teori Işlemleri
        
-        public int yapimIDyegoreturgetir( int id)
-        {
-            try
-            {
-                cmd.CommandText = "select Tur_ID from Teoriler where Yapım_ID=@id";
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@id", id);
-                
-                con.Open();
-                int sayi = Convert.ToInt32(cmd.ExecuteScalar());
-                return sayi;
-            }
-            catch
-            {
-                return 0;
-            }
-            finally
-            {
-                con.Close();
-            }
-        }
+       
         public bool teoriekle(Teoriler t)
         {
             try
@@ -50,7 +30,7 @@ namespace DataAccessLayer
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@tur_id", t.Tur_ID);
                 cmd.Parameters.AddWithValue("@Yonetici_id", t.Yonetici_ID);
-                cmd.Parameters.AddWithValue("@paylasilmatarihi", t.tarihstr);
+                cmd.Parameters.AddWithValue("@paylasilmatarihi", t.Paylasilma_Tarihi);
                 cmd.Parameters.AddWithValue("@içerik", t.içerik);
                 cmd.Parameters.AddWithValue("@begenisayisi", t.Begeni_Sayisi);
                 cmd.Parameters.AddWithValue("@yanitsayisi", t.Yanit_Sayisi);
@@ -109,6 +89,7 @@ namespace DataAccessLayer
                     t.Yapım_ID = reader.GetInt32(12);
                     t.Yapım = reader.GetString(13);
                     t.KullaniciAdi = reader.GetString(14);
+                    t.tarihstr  = reader.GetDateTime(5).ToString().TrimEnd('0', ':');
                     teorilistesi.Add(t);
 
                 }
@@ -152,6 +133,7 @@ namespace DataAccessLayer
                     t.Yapım_ID = reader.GetInt32(12);
                     t.Yapım = reader.GetString(13);
                     t.KullaniciAdi = reader.GetString(14);
+                    t.tarihstr = reader.GetDateTime(5).ToString().TrimEnd('0', ':');
                     teorilistesi.Add(t);
 
                 }
@@ -195,6 +177,7 @@ namespace DataAccessLayer
                     t.Yapım_ID = reader.GetInt32(12);
                     t.Yapım = reader.GetString(13);
                     t.KullaniciAdi = reader.GetString(14);
+                    t.tarihstr = reader.GetDateTime(5).ToString().TrimEnd('0', ':');
                     teorilistesi.Add(t);
 
                 }
@@ -240,6 +223,7 @@ namespace DataAccessLayer
                     t.Yapım_ID = reader.GetInt32(12);
                     t.Yapım = reader.GetString(13);
                     t.KullaniciAdi = reader.GetString(14);
+                    t.tarihstr = reader.GetDateTime(5).ToString().TrimEnd('0', ':');
                     teorilistesi.Add(t);
 
                 }
@@ -885,6 +869,28 @@ namespace DataAccessLayer
                 return null;
             }
             finally { con.Close(); }
+        }
+
+        public int yapimIDyegoreturgetir(int id)
+        {
+            try
+            {
+                cmd.CommandText = "select Tur_ID from Yapımlar where ID=@id";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", id);
+
+                con.Open();
+                int sayi = Convert.ToInt32(cmd.ExecuteScalar());
+                return sayi;
+            }
+            catch
+            {
+                return 0;
+            }
+            finally
+            {
+                con.Close();
+            }
         }
         #endregion
 
