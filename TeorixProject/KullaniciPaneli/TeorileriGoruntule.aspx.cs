@@ -12,10 +12,11 @@ namespace TeorixProject.KullaniciPaneli
     public partial class TeorileriGoruntule : System.Web.UI.Page
     {
         
-         bool paylasildi = false;
+        
         DataModel dm = new DataModel();
         protected void Page_Load(object sender, EventArgs e)
         {
+            
            
          
                 pnl_yorumpaylasildi.Visible = false;
@@ -63,41 +64,60 @@ namespace TeorixProject.KullaniciPaneli
             }
             
         }
-
+        
         protected void rp_teorilerkullanici_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-            {
-                // Kalp butonunun ID'sini düzenleme
-                var heart = e.Item.FindControl("heart") as HtmlGenericControl;
-                var heartId = "heart" + e.Item.ItemIndex;
-                heart.Attributes["id"] = heartId;
-            }
+           
             int id = Convert.ToInt32(Request.QueryString["yid"]);
-            
+            if (e.CommandName == "Select")
+            {
+                Uyeler u2 = (Uyeler)Session["Uyeler"];
+                int teoriID = Convert.ToInt32(e.CommandArgument);
+                if(dm.BegeniKontrol(teoriID,u2.ID) == 0)
+                {
+                    if(Session["Uyeler"] != null)
+                    {
+                        dm.begeniarttir(teoriID);
+                    }
+                    else
+                    {
+                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Beğenmek İçin Lütfen Üye Girişi Yapın!');", true);
+                    }
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Zaten Bu Teoriyi Beğendiniz!');", true);
+                }
+               
+            }
+
+
             rp_teorilerkullanici.DataSource = dm.TeoriListeleYapim(id);
             rp_teorilerkullanici.DataBind();
         }
 
         protected void lbtn_yorumYap_Click(object sender, EventArgs e)
         {
-           
-           
-            
-                Uyeler u2 = (Uyeler)Session["Uyeler"];
+            Uyeler u2 = (Uyeler)Session["Uyeler"];
 
-                Teoriler t = new Teoriler();
+            Teoriler t = new Teoriler();
+            t.Uye_ID = u2.ID;
+            t.içerik = tb_yorum.Text;
 
-            if (!string.IsNullOrEmpty(tb_yorum.Text))
+            if (dm.teorikontrolsayi(t.içerik, t.Uye_ID) == false)
             {
-                try
+              
+
+                if (!string.IsNullOrEmpty(tb_yorum.Text))
                 {
-                    
+                    try
+                    {
+
                         int id = Convert.ToInt32(Request.QueryString["yid"]);
                         t.Uye_ID = u2.ID;
                         t.Paylasilma_Tarihi = DateTime.Today;
                         t.aktiflik = true;
-                        t.içerik = tb_yorum.Text;
+                        
 
                         t.Yonetici_ID = 1;
                         t.Tur_ID = dm.yapimIDyegoreturgetir(id);
@@ -111,32 +131,38 @@ namespace TeorixProject.KullaniciPaneli
                         pnl_yorumpaylasilmadi.Visible = false;
                         dm.TeoriSayisiArttir(u2.ID);
 
-                    
+
+                    }
+                    catch
+                    {
+                        pnl_yorumpaylasilmadi.Visible = true;
+                        lbl_hata.Text = "Teori Paylaşırken Bir Hata Meydana Geldi";
+                        pnl_yorumpaylasildi.Visible = false;
+
+
+                    }
+
+
                 }
-                catch
+                else
                 {
                     pnl_yorumpaylasilmadi.Visible = true;
-                    lbl_hata.Text = "Teori Paylaşırken Bir Hata Meydana Geldi";
+                    lbl_hata.Text = "Boş Teori Paylaşılamaz";
                     pnl_yorumpaylasildi.Visible = false;
-                    
 
                 }
+            }
                
-
-            }
-            else
-            {
-                pnl_yorumpaylasilmadi.Visible=true;
-                lbl_hata.Text = "Boş Teori Paylaşılamaz";
-                pnl_yorumpaylasildi.Visible=false;
-                
-            }
 
 
 
 
            
         }
+        
+        
+       
 
+        
     }
 }

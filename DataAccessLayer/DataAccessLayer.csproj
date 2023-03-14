@@ -47,7 +47,7 @@
     <Compile Include="Teoriler.cs" />
     <Compile Include="Turler.cs" />
     <Compile Include="Uyeler.cs" />
-    <Compile Include="Yanitlar.cs" />
+    <Compile Include="Yanit.cs" />
     <Compile Include="Yapımlar.cs" />
     <Compile Include="Yoneticiler.cs" />
     <Compile Include="YoneticiTurleri.cs" />

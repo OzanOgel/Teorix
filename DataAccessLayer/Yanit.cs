@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer
 {
-    public class Yanitlar
+    public class Yanit
     {
         public int ID { get; set; }
         public int Teori_ID { get; set; }
@@ -21,6 +21,7 @@ namespace DataAccessLayer
         public string aktiflikStr { get; set; }
 
         public string durum { get; set; }
+        public string tarihstr { get; set; }
 
 
     }

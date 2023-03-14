@@ -25,7 +25,7 @@
                 </div>
                 <div class="menu">
                     <asp:Panel ID="pnl_girisvar" runat="server" Visible="false">
-                         <a href="#"><asp:Label ID="lbl_username0" runat="server"></asp:Label></a>
+                         <a href="KullaniciBilgiLİstesi.aspx"><asp:Label ID="lbl_username0" runat="server"></asp:Label></a>
                     
                   <label style="padding-left:20px"> <asp:LinkButton runat="server" ID="lbtn_cikis" OnClick="lbtn_cikis_Click"> <i style=" padding-right:3px;" class="fa-solid fa-right-from-bracket"></i>Çıkış</asp:LinkButton></label>
                     </asp:Panel>

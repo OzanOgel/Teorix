@@ -2138,6 +2138,7 @@
     <Content Include="KullaniciPaneli\Index.aspx" />
     <Content Include="KullaniciPaneli\KayitForm.aspx" />
     <Content Include="KullaniciPaneli\Kitaplar.aspx" />
+    <Content Include="KullaniciPaneli\KullaniciBilgiLİstesi.aspx" />
     <Content Include="KullaniciPaneli\KullaniciGiris.aspx" />
     <Content Include="KullaniciPaneli\TeorileriGoruntule.aspx" />
     <Content Include="KullaniciPaneli\YanitGoruntule.aspx" />
@@ -2286,6 +2287,13 @@
     </Compile>
     <Compile Include="KullaniciPaneli\Kitaplar.aspx.designer.cs">
       <DependentUpon>Kitaplar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KullaniciPaneli\KullaniciBilgiLİstesi.aspx.cs">
+      <DependentUpon>KullaniciBilgiLİstesi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KullaniciPaneli\KullaniciBilgiLİstesi.aspx.designer.cs">
+      <DependentUpon>KullaniciBilgiLİstesi.aspx</DependentUpon>
     </Compile>
     <Compile Include="KullaniciPaneli\KullaniciGiris.aspx.cs">
       <DependentUpon>KullaniciGiris.aspx</DependentUpon>

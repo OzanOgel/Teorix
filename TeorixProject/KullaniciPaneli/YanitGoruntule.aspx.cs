@@ -60,21 +60,66 @@ namespace TeorixProject.KullaniciPaneli
                 var heartId = "heart" + e.Item.ItemIndex;
                 heart.Attributes["id"] = heartId;
             }
-            int id = Convert.ToInt32(Request.QueryString["yid"]);
+            int id = Convert.ToInt32(Request.QueryString["tid"]);
 
             rp_Yanitlarkullanici.DataSource = dm.AktifYanitListele(id);
             rp_Yanitlarkullanici.DataBind();
         }
-        Yanitlar yanit = new Yanitlar();
 
+        Yanit ya = new Yanit();
         protected void lbtn_yorumYap_Click(object sender, EventArgs e)
         {
+            
 
-            Teoriler t = new Teoriler();
-            Yanitlar y = new Yanitlar();
-            y.te
+            if (!string.IsNullOrEmpty(tb_yorum.Text))
+            {
+                try
+                {
+                    
+                        
+                    int id = Convert.ToInt32(Request.QueryString["tid"]);
+                    Yanit ya = new Yanit();
+                    Uyeler u2 = (Uyeler)Session["Uyeler"];
+                    ya.Teori_ID = id;
+                    ya.Uye_ID = u2.ID;
+                    ya.PaylasilmaTarihi = DateTime.Today;
+                    ya.icerik = tb_yorum.Text;
+                    ya.BegeniSayisi = 0;
+                    dm.yanitekle(ya);
+                    dm.yanitsayisiarttir(id);
+                    
+                       
+
+                    
+                }
+                catch
+                {
+                    pnl_yorumpaylasilmadi.Visible = true;
+                    lbl_hata.Text = "Yanıt Paylaşırken Bir Hata Meydana Geldi";
+                    pnl_yorumpaylasildi.Visible = false;
+                    
+
+                }
+               
+
+            }
+            else
+            {
+                pnl_yorumpaylasilmadi.Visible=true;
+                lbl_hata.Text = "Boş Yanıt Paylaşılamaz";
+                pnl_yorumpaylasildi.Visible=false;
+                
+            }
+
+
+
+
+           
+        }
+
+    }
+            
             
             
         }
-    }
-}
+    

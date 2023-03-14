@@ -42,6 +42,33 @@ namespace TeorixProject.KullaniciPaneli
         protected global::System.Web.UI.WebControls.LinkButton lbtn_yorumYap;
 
         /// <summary>
+        /// pnl_yorumpaylasildi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnl_yorumpaylasildi;
+
+        /// <summary>
+        /// pnl_yorumpaylasilmadi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnl_yorumpaylasilmadi;
+
+        /// <summary>
+        /// lbl_hata control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_hata;
+
+        /// <summary>
         /// pnl_UyeOl control.
         /// </summary>
         /// <remarks>

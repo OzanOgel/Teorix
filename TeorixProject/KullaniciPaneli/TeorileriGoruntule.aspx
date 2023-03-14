@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/KullaniciPaneli/Kullanicipnl.Master" AutoEventWireup="true" CodeBehind="TeorileriGoruntule.aspx.cs" Inherits="TeorixProject.KullaniciPaneli.TeorileriGoruntule" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
     <style>
         .basarili {
             margin-top:50px;
@@ -17,60 +16,8 @@
             margin-left:auto;
             margin-right:auto;
         }
-        .basarisiz{
-             margin-top:50px;
-            width: 600px;
-            height: 80px;
-            background-color: red;
-            color: white;
-            font-size: 24px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border:1px solid black;
-            margin-left:auto;
-            margin-right:auto;
-        }
-
-        .heart {
-            color: grey;
-            cursor: pointer;
-            font-size: 20px;
-        }
-
-
-
-            .heart.active {
-                color: red;
-                animation-name: fillHeart;
-                animation-duration: 0.5s;
-            }
-
-        @keyframes fillHeart {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.2);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-        }
     </style>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const hearts = document.querySelectorAll(".heart");
-            hearts.forEach(heart => {
-                heart.addEventListener("click", function () {
-                    this.classList.toggle("active");
-                });
-            });
-        });
-    </script>
+   
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -105,13 +52,15 @@
                     <div class="teoribilgiler">
                         <ul>
                             <li>Tarih(<%# Eval("tarihstr") %>) |</li>
-                            <li>Beğeni Sayısı( <%# Eval("Begeni_Sayisi") %> ) <i class="far fa-heart heart"></i>|</li>
+                            <li> <asp:LinkButton ID="lbtn_begen" runat="server" CommandName="Select" CommandArgument='<%# Eval("ID") %>'> Beğeni Sayısı( <%# Eval("Begeni_Sayisi") %> ) </asp:LinkButton></li>
                             <li><a href="YanitGoruntule.aspx?tid=<%# Eval("ID") %>">Yanıt Sayısı(<%# Eval("Yanit_Sayisi") %>)</a>
+                                
 
                             </li>
                         </ul>
                     </div>
                 </div>
+                
             </ItemTemplate>
         </asp:Repeater>
     </asp:Panel>

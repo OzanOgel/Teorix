@@ -48,6 +48,8 @@
             <asp:TextBox ID="tb_yorum" runat="server"  CssClass="forminput" TextMode="MultiLine"></asp:TextBox>
             <br /><br />
             <asp:LinkButton ID="lbtn_yorumYap" runat="server" CssClass="formbutton" OnClick="lbtn_yorumYap_Click">Yanıt Paylaş</asp:LinkButton>
+       <asp:Panel ID="pnl_yorumpaylasildi" runat="server" CssClass="basarili">Teori Başarı ile Paylaşıldı</asp:Panel>
+        <asp:Panel ID="pnl_yorumpaylasilmadi" runat="server" CssClass="basarisiz"><asp:Label ID="lbl_hata" runat="server"></asp:Label></asp:Panel>
         </asp:Panel>
     <asp:Panel ID="pnl_UyeOl" runat="server" Visible="false"><div style="margin-top:50px; margin-left:auto; margin-right:auto; width: 800px; height: 100px; text-align: center; font-size: 24px; border: 1px solid red; display: flex; align-items: center; justify-content: center;">
   
