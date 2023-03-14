@@ -294,6 +294,10 @@ namespace DataAccessLayer
                 cmd.Parameters.AddWithValue("@id", id);
                 con.Open();
                 cmd.ExecuteNonQuery();
+                cmd.CommandText = "delete from BegenilenTeoriler where Teori_ID=@id";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id",id);
+                cmd.ExecuteNonQuery();
                 cmd.CommandText = "DELETE Teoriler WHERE ID = @id";
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@id", id);
@@ -1027,12 +1031,34 @@ namespace DataAccessLayer
         #endregion
 
         #region Yanıt İşlemleri
+
+        public bool Yanitkontrolsayi(string içerik, int uyeıd)
+        {
+            try
+            {
+                cmd.CommandText = "select count(*) from Yanitlar where içerik = @icerik and Uye_ID = @uyeid";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("icerik", içerik);
+                cmd.Parameters.AddWithValue("uyeid", uyeıd);
+                con.Open();
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                return count > 0;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
         public List<Yanit> BekleyenYanitListele()
         {
             try
             {
                 List<Yanit> Onaybekleyenyanitlar = new List<Yanit>();
-                cmd.CommandText = "select y.ID ,y.Teori_ID,y.Uye_ID,y.PaylaşılmaTarihi,y.içerik,y.BegeniSayisi,y.aktiflik,u.Kullanici_Adi from Yanitlar as y join Uyeler as u on y.Uye_ID =u.ID where y.durum = 'Onay Bekliyor' ";
+                cmd.CommandText = "select y.ID ,y.Teori_ID,y.Uye_ID,y.PaylaşılmaTarihi,y.içerik,y.aktiflik,u.Kullanici_Adi from Yanitlar as y join Uyeler as u on y.Uye_ID =u.ID where y.durum = 'Onay Bekliyor' ";
                 cmd.Parameters.Clear();
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -1044,10 +1070,11 @@ namespace DataAccessLayer
                     y.Uye_ID = reader.GetInt32(2);
                     y.PaylasilmaTarihi = reader.GetDateTime(3);
                     y.icerik = reader.GetString(4);
-                    y.BegeniSayisi = reader.GetInt32(5);
-                    y.aktiflik = reader.GetBoolean(6);
-                    y.aktiflikStr = reader.GetBoolean(6) ? "<label style='color:green'>Aktif</label>" : "<label style='color:red'>Pasif</label>";
-                    y.Uye = reader.GetString(7);
+                    
+                    y.aktiflik = reader.GetBoolean(5);
+                    y.aktiflikStr = reader.GetBoolean(5) ? "<label style='color:green'>Aktif</label>" : "<label style='color:red'>Pasif</label>";
+                    y.Uye = reader.GetString(6);
+                    y.tarihstr = reader.GetDateTime(3).Date.ToString().TrimEnd('0', ':'); ;
                     Onaybekleyenyanitlar.Add(y);
                 }
                 return Onaybekleyenyanitlar;
@@ -1118,7 +1145,7 @@ namespace DataAccessLayer
             try
             {
                 List<Yanit> Onaybekleyenyanitlar = new List<Yanit>();
-                cmd.CommandText = "select y.ID ,y.Teori_ID,y.Uye_ID,y.PaylaşılmaTarihi,y.içerik,y.BegeniSayisi,y.aktiflik,u.Kullanici_Adi from Yanitlar as y join Uyeler as u on y.Uye_ID =u.ID where y.durum = 'Onaylandı' ";
+                cmd.CommandText = "select y.ID ,y.Teori_ID,y.Uye_ID,y.PaylaşılmaTarihi,y.içerik,y.aktiflik,u.Kullanici_Adi from Yanitlar as y join Uyeler as u on y.Uye_ID =u.ID where y.durum = 'Onaylandı' ";
                 cmd.Parameters.Clear();
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -1130,10 +1157,11 @@ namespace DataAccessLayer
                     y.Uye_ID = reader.GetInt32(2);
                     y.PaylasilmaTarihi = reader.GetDateTime(3);
                     y.icerik = reader.GetString(4);
-                    y.BegeniSayisi = reader.GetInt32(5);
-                    y.aktiflik = reader.GetBoolean(6);
-                    y.aktiflikStr = reader.GetBoolean(6) ? "<label style='color:green'>Aktif</label>" : "<label style='color:red'>Pasif</label>";
-                    y.Uye = reader.GetString(7);
+
+                    y.aktiflik = reader.GetBoolean(5);
+                    y.aktiflikStr = reader.GetBoolean(5) ? "<label style='color:green'>Aktif</label>" : "<label style='color:red'>Pasif</label>";
+                    y.Uye = reader.GetString(6);
+                    y.tarihstr = reader.GetDateTime(3).Date.ToString().TrimEnd('0', ':'); ;
                     Onaybekleyenyanitlar.Add(y);
                 }
                 return Onaybekleyenyanitlar;
@@ -1152,7 +1180,7 @@ namespace DataAccessLayer
             try
             {
                 List<Yanit> Onaybekleyenyanitlar = new List<Yanit>();
-                cmd.CommandText = "select y.ID ,y.Teori_ID,y.Uye_ID,y.PaylaşılmaTarihi,y.içerik,y.BegeniSayisi,y.aktiflik,u.Kullanici_Adi from Yanitlar as y join Uyeler as u on y.Uye_ID =u.ID where y.durum = 'Reddedildi' ";
+                cmd.CommandText = "select y.ID ,y.Teori_ID,y.Uye_ID,y.PaylaşılmaTarihi,y.içerik,y.aktiflik,u.Kullanici_Adi from Yanitlar as y join Uyeler as u on y.Uye_ID =u.ID where y.durum = 'Reddedildi' ";
                 cmd.Parameters.Clear();
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -1164,10 +1192,11 @@ namespace DataAccessLayer
                     y.Uye_ID = reader.GetInt32(2);
                     y.PaylasilmaTarihi = reader.GetDateTime(3);
                     y.icerik = reader.GetString(4);
-                    y.BegeniSayisi = reader.GetInt32(5);
-                    y.aktiflik = reader.GetBoolean(6);
-                    y.aktiflikStr = reader.GetBoolean(6) ? "<label style='color:green'>Aktif</label>" : "<label style='color:red'>Pasif</label>";
-                    y.Uye = reader.GetString(7);
+
+                    y.aktiflik = reader.GetBoolean(5);
+                    y.aktiflikStr = reader.GetBoolean(5) ? "<label style='color:green'>Aktif</label>" : "<label style='color:red'>Pasif</label>";
+                    y.Uye = reader.GetString(6);
+                    y.tarihstr = reader.GetDateTime(3).Date.ToString().TrimEnd('0', ':'); ;
                     Onaybekleyenyanitlar.Add(y);
                 }
                 return Onaybekleyenyanitlar;
@@ -1186,7 +1215,7 @@ namespace DataAccessLayer
             try
             {
                 List<Yanit> yanitlar = new List<Yanit>();
-                cmd.CommandText = "select y.ID ,y.Teori_ID,y.Uye_ID,y.PaylaşılmaTarihi,y.içerik,y.BegeniSayisi,y.aktiflik,u.Kullanici_Adi from Yanitlar as y join Uyeler as u on y.Uye_ID =u.ID where y.aktiflik=1 and Teori_ID =@id";
+                cmd.CommandText = "select y.ID ,y.Teori_ID,y.Uye_ID,y.PaylaşılmaTarihi,y.içerik,y.aktiflik,u.Kullanici_Adi from Yanitlar as y join Uyeler as u on y.Uye_ID =u.ID where y.aktiflik=1 and Teori_ID =@id";
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("id", id);
                 con.Open();
@@ -1199,10 +1228,11 @@ namespace DataAccessLayer
                     y.Uye_ID = reader.GetInt32(2);
                     y.PaylasilmaTarihi = reader.GetDateTime(3);
                     y.icerik = reader.GetString(4);
-                    y.BegeniSayisi = reader.GetInt32(5);
-                    y.aktiflik = reader.GetBoolean(6);
-                    y.aktiflikStr = reader.GetBoolean(6) ? "<label style='color:green'>Aktif</label>" : "<label style='color:red'>Pasif</label>";
-                    y.Uye = reader.GetString(7);
+
+                    y.aktiflik = reader.GetBoolean(5);
+                    y.aktiflikStr = reader.GetBoolean(5) ? "<label style='color:green'>Aktif</label>" : "<label style='color:red'>Pasif</label>";
+                    y.Uye = reader.GetString(6);
+                    y.tarihstr = reader.GetDateTime(3).Date.ToString().TrimEnd('0', ':'); ;
                     yanitlar.Add(y);
                 }
                 return yanitlar;
@@ -1230,14 +1260,14 @@ namespace DataAccessLayer
         {
             try
             {
-                cmd.CommandText = "insert into Yanitlar(Teori_ID,Uye_ID,Yonetici_ID,PaylaşılmaTarihi,içerik,BegeniSayisi,aktiflik,durum) values(@teoriid,@uyeid,1,@paylasilmatarihi,@içerik,@begenisayisi,1,'Onay Bekliyor')";
+                cmd.CommandText = "insert into Yanitlar(Teori_ID,Uye_ID,Yonetici_ID,PaylaşılmaTarihi,içerik,aktiflik,durum) values(@teoriid,@uyeid,1,@paylasilmatarihi,@içerik,0,'Onay Bekliyor')";
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@teoriid",y.Teori_ID);
                 cmd.Parameters.AddWithValue("@uyeid",y.Uye_ID);
                 
                 cmd.Parameters.AddWithValue("@paylasilmatarihi",y.PaylasilmaTarihi);
                 cmd.Parameters.AddWithValue("@içerik",y.icerik);
-                cmd.Parameters.AddWithValue("@begenisayisi",y.BegeniSayisi);
+               
                 con.Open();
                 cmd.ExecuteNonQuery();
                 return true;

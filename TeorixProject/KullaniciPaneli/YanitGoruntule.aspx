@@ -2,32 +2,34 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
    
     <style>
-        .heart {
-            color: grey;
-            cursor: pointer;
-            font-size: 20px;
+       .basarili {
+            margin-top:50px;
+            width: 600px;
+            height: 80px;
+            background-color: green;
+            color: white;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border:1px solid black;
+            margin-left:auto;
+            margin-right:auto;
         }
-
-
-
-            .heart.active {
-                color: red;
-                animation-name: fillHeart;
-                animation-duration: 0.5s;
-            }
-
-        @keyframes fillHeart {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.2);
-            }
-
-            100% {
-                transform: scale(1);
-            }
+       .basarisiz{
+           margin-top:50px;
+            width: 600px;
+            height: 80px;
+            background-color: red;
+            color: white;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border:1px solid black;
+            margin-left:auto;
+            margin-right:auto;
+        }
         }
     </style>
 
@@ -48,17 +50,17 @@
             <asp:TextBox ID="tb_yorum" runat="server"  CssClass="forminput" TextMode="MultiLine"></asp:TextBox>
             <br /><br />
             <asp:LinkButton ID="lbtn_yorumYap" runat="server" CssClass="formbutton" OnClick="lbtn_yorumYap_Click">Yanıt Paylaş</asp:LinkButton>
-       <asp:Panel ID="pnl_yorumpaylasildi" runat="server" CssClass="basarili">Teori Başarı ile Paylaşıldı</asp:Panel>
+       <asp:Panel ID="pnl_yorumpaylasildi" runat="server" CssClass="basarili">Yanıtınız Yönetici Tarafından Onaylandıktan Sonra Paylaşılacaktır</asp:Panel>
         <asp:Panel ID="pnl_yorumpaylasilmadi" runat="server" CssClass="basarisiz"><asp:Label ID="lbl_hata" runat="server"></asp:Label></asp:Panel>
         </asp:Panel>
     <asp:Panel ID="pnl_UyeOl" runat="server" Visible="false"><div style="margin-top:50px; margin-left:auto; margin-right:auto; width: 800px; height: 100px; text-align: center; font-size: 24px; border: 1px solid red; display: flex; align-items: center; justify-content: center;">
   
-  <span style="color: red;"> <i class="fa-solid fa-ban"></i> Yanıt Paylaşabilmek için <a href="#" style="text-decoration:none; color: red; color:cornflowerblue; text-decoration:underline;">üye</a> olmalısınız</span>
+  <span style="color: red;"> <i class="fa-solid fa-ban"></i> Yanıt Paylaşabilmek için <a href="KullaniciGiris.aspx" style="text-decoration:none; color: red; color:cornflowerblue; text-decoration:underline;">üye</a> olmalısınız</span>
 </div></asp:Panel>
    
 
     <asp:Panel runat="server" ID="pnl_Teoriyok" CssClass="teorinone" Visible="false">
-        <label><i style="padding-right: 20px; font-size: 20pt;" class="fa-solid fa-ban"></i>Bu Yapımla ilgili Teori Paylaşılmamış!</label>
+        <label><i style="padding-right: 20px; font-size: 20pt;" class="fa-solid fa-ban"></i>Bu Teori ile ilgili Yanıt Paylaşılmamış!</label>
     </asp:Panel>
     <asp:Panel runat="server" ID="pnl_Teoriler" CssClass="Teoriler">
         <h3 style="font-size:25pt;font-family: 'Cabin', sans-serif; margin-left:700px;">Yanıtlar</h3>
@@ -71,8 +73,7 @@
                     </div>
                     <div class="teoribilgiler">
                         <ul>
-                            <li>Tarih(<%# Eval("PaylasilmaTarihi") %>) |</li>
-                            <li>Beğeni Sayısı( <%# Eval("BegeniSayisi") %> ) <i class="far fa-heart heart"></i>|</li>
+                            <li>Tarih(<%# Eval("tarihstr") %>) |</li>
                             
 
                             </li>

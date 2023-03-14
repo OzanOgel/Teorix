@@ -15,6 +15,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <style>
+        .lbtn{
+            color:#6B12A6; text-decoration:none
+        }
+        .lbtn:hover{
+            text-decoration:underline;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -25,9 +33,9 @@
                 </div>
                 <div class="menu">
                     <asp:Panel ID="pnl_girisvar" runat="server" Visible="false">
-                         <a href="KullaniciBilgiLİstesi.aspx"><asp:Label ID="lbl_username0" runat="server"></asp:Label></a>
+                         <a class="lbtn" href="KullaniciBilgiLİstesi.aspx"><asp:Label ID="lbl_username0" runat="server"></asp:Label></a>
                     
-                  <label style="padding-left:20px"> <asp:LinkButton runat="server" ID="lbtn_cikis" OnClick="lbtn_cikis_Click"> <i style=" padding-right:3px;" class="fa-solid fa-right-from-bracket"></i>Çıkış</asp:LinkButton></label>
+                  <label style="padding-left:20px"> <asp:LinkButton runat="server" ID="lbtn_cikis" OnClick="lbtn_cikis_Click" CssClass="lbtn"> <i style=" padding-right:3px;" class="fa-solid fa-right-from-bracket"></i>Çıkış</asp:LinkButton></label>
                     </asp:Panel>
                     <asp:Panel runat="server" ID="pnl_girisyok" CssClass="girisyok">
                         <a href="KullaniciGiris.aspx">Giriş Yap</a>

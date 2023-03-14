@@ -15,6 +15,8 @@ namespace TeorixProject.KullaniciPaneli
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            pnl_yorumpaylasildi.Visible = false;
+            pnl_yorumpaylasilmadi.Visible = false;
             if (Session["Uyeler"] != null)
             {
                 pnl_girisvar.Visible = true;
@@ -53,13 +55,7 @@ namespace TeorixProject.KullaniciPaneli
 
         protected void rp_Yanitlarkullanici_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-            {
-                // Kalp butonunun ID'sini düzenleme
-                var heart = e.Item.FindControl("heart") as HtmlGenericControl;
-                var heartId = "heart" + e.Item.ItemIndex;
-                heart.Attributes["id"] = heartId;
-            }
+            
             int id = Convert.ToInt32(Request.QueryString["tid"]);
 
             rp_Yanitlarkullanici.DataSource = dm.AktifYanitListele(id);
@@ -69,47 +65,56 @@ namespace TeorixProject.KullaniciPaneli
         Yanit ya = new Yanit();
         protected void lbtn_yorumYap_Click(object sender, EventArgs e)
         {
-            
-
-            if (!string.IsNullOrEmpty(tb_yorum.Text))
+            Yanit ya = new Yanit();
+            Uyeler u2 = (Uyeler)Session["Uyeler"];
+            ya.Uye_ID = u2.ID;
+            ya.icerik = tb_yorum.Text;
+            if(dm.Yanitkontrolsayi(ya.icerik,ya.Uye_ID) == false)
             {
-                try
+                if (!string.IsNullOrEmpty(tb_yorum.Text))
                 {
-                    
-                        
-                    int id = Convert.ToInt32(Request.QueryString["tid"]);
-                    Yanit ya = new Yanit();
-                    Uyeler u2 = (Uyeler)Session["Uyeler"];
-                    ya.Teori_ID = id;
-                    ya.Uye_ID = u2.ID;
-                    ya.PaylasilmaTarihi = DateTime.Today;
-                    ya.icerik = tb_yorum.Text;
-                    ya.BegeniSayisi = 0;
-                    dm.yanitekle(ya);
-                    dm.yanitsayisiarttir(id);
-                    
-                       
+                    try
+                    {
 
-                    
+
+                        int id = Convert.ToInt32(Request.QueryString["tid"]);
+
+                        ya.Teori_ID = id;
+
+                        ya.PaylasilmaTarihi = DateTime.Today;
+                        ya.icerik = tb_yorum.Text;
+                        pnl_yorumpaylasildi.Visible = true;
+                        pnl_yorumpaylasilmadi.Visible = false;
+                        dm.yanitekle(ya);
+                        dm.yanitsayisiarttir(id);
+                        tb_yorum.Text = " ";
+
+
+
+
+                    }
+                    catch
+                    {
+                        pnl_yorumpaylasilmadi.Visible = true;
+                        lbl_hata.Text = "Yanıt Paylaşırken Bir Hata Meydana Geldi";
+                        pnl_yorumpaylasildi.Visible = false;
+
+
+                    }
+
+
                 }
-                catch
+                else
                 {
                     pnl_yorumpaylasilmadi.Visible = true;
-                    lbl_hata.Text = "Yanıt Paylaşırken Bir Hata Meydana Geldi";
+                    lbl_hata.Text = "Boş Yanıt Paylaşılamaz";
                     pnl_yorumpaylasildi.Visible = false;
-                    
 
                 }
-               
+            }
+           
 
-            }
-            else
-            {
-                pnl_yorumpaylasilmadi.Visible=true;
-                lbl_hata.Text = "Boş Yanıt Paylaşılamaz";
-                pnl_yorumpaylasildi.Visible=false;
-                
-            }
+            
 
 
 

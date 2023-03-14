@@ -37,6 +37,9 @@
     margin-top:10px;
     margin-left: 100px;
 }
+.menuitem:hover{
+    text-decoration:underline;
+}
 .menuitem a {
     color: rebeccapurple;
     text-decoration:none;

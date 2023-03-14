@@ -16,7 +16,7 @@ namespace DataAccessLayer
         
         public DateTime PaylasilmaTarihi { get; set; }
         public string icerik { get; set; }
-        public int BegeniSayisi { get; set; }
+        
         public bool aktiflik { get; set; }
         public string aktiflikStr { get; set; }
 

@@ -69,27 +69,36 @@ namespace TeorixProject.KullaniciPaneli
         {
            
             int id = Convert.ToInt32(Request.QueryString["yid"]);
-            if (e.CommandName == "Select")
-            {
-                Uyeler u2 = (Uyeler)Session["Uyeler"];
-                int teoriID = Convert.ToInt32(e.CommandArgument);
-                if(dm.BegeniKontrol(teoriID,u2.ID) == 0)
+            
+            
+                if (e.CommandName == "Select")
                 {
-                    if(Session["Uyeler"] != null)
+                    Uyeler u2 = (Uyeler)Session["Uyeler"];
+                if(u2 != null)
+                {
+                    int teoriID = Convert.ToInt32(e.CommandArgument);
+                    if (dm.BegeniKontrol(teoriID, u2.ID) == 0)
                     {
-                        dm.begeniarttir(teoriID);
+                        
+                        
+                            dm.begeniarttir(teoriID);
+                        
+                        
                     }
                     else
                     {
-                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Beğenmek İçin Lütfen Üye Girişi Yapın!');", true);
+                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Zaten Bu Teoriyi Beğendiniz!');", true);
                     }
                 }
                 else
                 {
-                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Zaten Bu Teoriyi Beğendiniz!');", true);
+                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Beğenmek İçin Lütfen Üye Girişi Yapın!');", true);
                 }
-               
+                    
+
+                
             }
+            
 
 
             rp_teorilerkullanici.DataSource = dm.TeoriListeleYapim(id);
@@ -130,6 +139,7 @@ namespace TeorixProject.KullaniciPaneli
                         pnl_yorumpaylasildi.Visible = true;
                         pnl_yorumpaylasilmadi.Visible = false;
                         dm.TeoriSayisiArttir(u2.ID);
+                        tb_yorum.Text = " ";
 
 
                     }

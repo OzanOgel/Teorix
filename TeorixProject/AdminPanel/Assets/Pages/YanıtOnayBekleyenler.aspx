@@ -19,7 +19,7 @@
                             <th>Uye</th>
                             <th>Paylaşılma Tarihi</th>
                             <th>İçerik</th>
-                            <th>Begeni Sayisi</th>
+                            
                             <th>aktiflik</th>
                             <th>Secenekler</th>
                         </tr>
@@ -36,10 +36,10 @@
                     <td><%# Eval("Uye") %></td>
                
                  
-                    <td><%# Eval("PaylasilmaTarihi") %></td>
+                    <td><%# Eval("tarihstr") %></td>
 
                     <td><%# Eval("icerik") %></td>
-                    <td><%# Eval("BegeniSayisi") %></td>
+                    
                     <td><%# Eval("aktiflikStr") %></td>
                     <td>
                         <asp:LinkButton ID="lbtn_YorumRed" runat="server" CssClass="sil" CommandArgument='<%# Eval("ID") %>' CommandName="Reddet">Reddet</asp:LinkButton>

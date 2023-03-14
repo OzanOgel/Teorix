@@ -16,6 +16,20 @@
             margin-left:auto;
             margin-right:auto;
         }
+        .basarisiz{
+            margin-top:50px;
+            width: 600px;
+            height: 80px;
+            background-color: red;
+            color: white;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border:1px solid black;
+            margin-left:auto;
+            margin-right:auto;
+        }
     </style>
    
 </asp:Content>
@@ -32,7 +46,7 @@
     <asp:Panel ID="pnl_UyeOl" runat="server" Visible="false">
         <div style="margin-top: 50px; margin-left: auto; margin-right: auto; width: 800px; height: 100px; text-align: center; font-size: 24px; border: 1px solid red; display: flex; align-items: center; justify-content: center;">
 
-            <span style="color: red;"><i class="fa-solid fa-ban"></i>Teori Paylaşabilmek için <a href="#" style="text-decoration: none; color: red; color: cornflowerblue; text-decoration: underline;">üye</a> olmalısınız</span>
+            <span style="color: red;"><i class="fa-solid fa-ban"></i>Teori Paylaşabilmek için <a href="KullaniciGiris.aspx" style="text-decoration: none; color: red; color: cornflowerblue; text-decoration: underline;">üye</a> olmalısınız</span>
         </div>
     </asp:Panel>
 
