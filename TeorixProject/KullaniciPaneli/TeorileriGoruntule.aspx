@@ -66,8 +66,8 @@
                     <div class="teoribilgiler">
                         <ul>
                             <li>Tarih(<%# Eval("tarihstr") %>) |</li>
-                            <li> <asp:LinkButton ID="lbtn_begen" runat="server" CommandName="Select" CommandArgument='<%# Eval("ID") %>'> Beğeni Sayısı( <%# Eval("Begeni_Sayisi") %> ) </asp:LinkButton></li>
-                            <li><a href="YanitGoruntule.aspx?tid=<%# Eval("ID") %>">Yanıt Sayısı(<%# Eval("Yanit_Sayisi") %>)</a>
+                            <li> <asp:LinkButton ID="lbtn_begen" runat="server" CommandName="Select" CommandArgument='<%# Eval("ID") %>' CssClass="lnk"> Beğeni Sayısı( <%# Eval("Begeni_Sayisi") %> ) </asp:LinkButton></li>
+                            <li><a class="lnk" href="YanitGoruntule.aspx?tid=<%# Eval("ID") %>">Yanıt Sayısı(<%# Eval("Yanit_Sayisi") %>)</a>
                                 
 
                             </li>

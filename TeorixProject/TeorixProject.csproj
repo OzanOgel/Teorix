@@ -2132,7 +2132,9 @@
     <Content Include="AdminPanel\Assets\Pages\YanıtOnayBekleyenler.aspx" />
     <Content Include="AdminPanel\Assets\Pages\YoneticilerAktif.aspx" />
     <Content Include="AdminPanel\Assets\Pages\YoneticilerPasif.aspx" />
+    <Content Include="KullaniciPaneli\Assets\img\imagesmanzara.jpeg" />
     <Content Include="KullaniciPaneli\Assets\img\imgbacround.png" />
+    <Content Include="KullaniciPaneli\Assets\img\maznara.jpg" />
     <Content Include="KullaniciPaneli\Diziler.aspx" />
     <Content Include="KullaniciPaneli\Filmler.aspx" />
     <Content Include="KullaniciPaneli\Index.aspx" />

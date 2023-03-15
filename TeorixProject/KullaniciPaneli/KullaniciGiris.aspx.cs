@@ -37,7 +37,7 @@ namespace TeorixProject.KullaniciPaneli
                 else
                 {
                     pnl_hata.Visible = true;
-                    lbl_hata.Text = "Kullanıcı Bulunamadı";
+                    lbl_hata.Text = "*Kullanıcı Bulunamadı";
                 }
 
 
@@ -48,7 +48,7 @@ namespace TeorixProject.KullaniciPaneli
             else
             {
                 pnl_hata.Visible = true;
-                lbl_hata.Text = "Kullanıcı Adı ve Şifre Boş olamaz";
+                lbl_hata.Text = "*Kullanıcı Adı ve Şifre Boş olamaz";
             }
         }
     }
