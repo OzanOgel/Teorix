@@ -4,103 +4,166 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap" rel="stylesheet">
+    <title>Teorix Kayıt</title>
     <style>
-        body {
-            background-image: url("Assets/img/imgbacround.png");
+        body{
+            background-color:#EFEFEF;
         }
+     .contanier{
+         margin-top:50px;
+         margin-left:350px;
+         
+         width:850px;
+         height:650px;
+         border:1px solid gray;
+         border-bottom-left-radius:30px;
+          border-top-left-radius:30px;
+          background-color:#ffffff;
+          border-radius:30px;
+       
+          
+     }
+     
+     .left{
+         width:350px;
+         height:650px;
+         float:left;
+         border-right:1px solid red;
+         background-image:url("Assets/img/maznara.jpg");
+         background-repeat:no-repeat;
+          background-size: 100% 100%;
+          border-bottom-left-radius:30px;
+          border-top-left-radius:30px;
+     }
+     .contanier h1{
+         font-family: 'Tilt Prism', cursive;
+          color:#916EC9;
+          font-size:40pt;
+          left:135px;
+          position:relative;
+     }
+     .textbox{
+         outline:none;
+         border-top:none;
+         border-left:none;
+         border-right:none;
+         border-color:rgb(109, 109, 109, 0,72);
+         width:300px;
+         height:30px;
+        font-size:15pt;
+       transition-property:border-bottom;
+       transition-duration:250ms;
 
-        .contanier {
-            margin-top: 100px;
-            margin-left: auto;
-            margin-right: auto;
-            width: 450px;
-            height: 590px;
-            border: 1px solid black;
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-            background-color: #ededed;
-        }
+         
+         
+  
+     }
+     .textbox::placeholder{
+         
+         font-size:15pt;
+         padding:20px;
+       
+         
+         
+     }
+     .textbox:focus{
+  border-bottom:2px solid #916EC9;
+     }
+     .inc{
+         top:50px;
+         position:relative;
+        left:50px;
+     }
+     .girisyap{
+         text-decoration:none;
+         background-color:#916EC9;
+         padding:13px 35px;
+         color:white;
+         font-family:Calibri;
+         font-weight:900;
+         border-radius:30px;
+         
+         left:250px;
+         position:relative;
+     }
+     .contanier i{
+        top:10px;
+         font-size:25pt;
+         color:lightgray;
+         position:relative;
+         right:10px;
 
-            .contanier .header {
-                width: 100%;
-                background-color: forestgreen;
-                height: 120px;
-                border-top-left-radius: 8px;
-                border-top-right-radius: 8px;
-            }
+     }
+     label{
+         color:gray;
+         font-size:15pt;
+        bottom:70px;
+         position:relative;
+         font-family:Calibri;
+         right:20px;
+     }
+     label a{
+         opacity:0,2;
+         text-decoration:none;
+         color:#916EC9;
+     }
+     label a:hover{
+         text-decoration:underline;
+     }
+     .hata{
+       bottom:40px;
+         color:red;
+         word-break:break-word;
+         position:relative;
+         font-size:17px;
 
-        .textboxlar {
-            margin-top: 30px;
-            margin-left: 23px;
-        }
+     }
+     .right{
+         left:50px;
+         top:20px;
+         position:relative;
+     }
+     span{
+         font-size:16pt;
+         color:gray;
+     }
+     .hatametin{
+         color:red !important;
+         word-break:break-word;
+     }
 
-        .minbox {
-            border-radius: 6px;
-            background-color: rgb(180, 180, 180, 0,67);
-        }
-
-        .maxbox {
-            border-radius: 6px;
-            background-color: rgb(180, 180, 180, 0,78);
-            margin-left: 17px;
-        }
-
-        label {
-            color: rgb(82, 82, 82, 0,62);
-            margin-left: 10px;
-        }
-
-        .girisyap {
-            
-            padding: 10px 18px;
-            background-color: forestgreen;
-            border-radius: 5px;
-            text-decoration: none;
-            border: 1px solid black;
-            margin-left: 150px;
-            color: black;
-        }
-
-            .girisyap:hover {
-                background-color: #228b22e1;
-                text-decoration: underline;
-            }
-            .hatametin{
-            word-break:break-word;
-            color:red;
-            margin-left:8px;
-        }
-            .girisyapildi{
-                  word-break:break-word;
-            color:green;
-            margin-left:8px;
-            font-size:15px;
-            }
+    
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div class="contanier">
-            <div class="header"></div>
-            <div class="textboxlar">
-                <label style="margin-left: 70px;">İsim</label>
-                <label style="margin-left: 180px;">Soyad</label><br />
-                <asp:TextBox runat="server" ID="tb_isim" Width="170px" Height="20px" CssClass="minbox"></asp:TextBox>
+      <div class="left"> </div>
+          <h1>Teorix</h1>
+                <div class="right">
+                    <span>Isim:</span><span style="left:180px; position:relative;">Soy İsim:</span><br />
+                <asp:TextBox runat="server" ID="tb_isim" Width="170px" Height="20px" CssClass="textbox"></asp:TextBox>
                 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox runat="server" ID="Tb_soyisim" Width="170px" Height="20px" CssClass="minbox"></asp:TextBox><br />
+                
+            <asp:TextBox runat="server" ID="Tb_soyisim" Width="170px" Height="20px" CssClass="textbox" ></asp:TextBox><br />
                 <br />
-                <label style="margin-left: 170px;">E-Posta</label>
-                <asp:TextBox runat="server" ID="tb_mail" Width="350px" Height="20px" CssClass="maxbox"></asp:TextBox><br />
+             <span>Mail:</span><br />
+                <asp:TextBox runat="server" ID="tb_mail" CssClass="textbox"></asp:TextBox><br />
                 <br />
-                <label style="margin-left: 170px;">Şifre</label>
-                <asp:TextBox runat="server" ID="tb_sifre" Width="350px" Height="20px" CssClass="maxbox"></asp:TextBox><br />
+                    <span>Kullanıcı Adı:</span><br />
+            <asp:TextBox runat="server" ID="tb_kullaniciadi" CssClass="textbox" ></asp:TextBox>
+            <br />
+              
+                
+               <span>Şifre:</span><br />
+                <asp:TextBox runat="server" ID="tb_sifre" CssClass="textbox"  TextMode="Password"></asp:TextBox><br />
+                
                 <br />
-                <label style="margin-left: 170px;">Şifre(Tekrar)</label>
-                <asp:TextBox runat="server" ID="tb_sifretekrar" Width="350px" Height="20px" CssClass="maxbox"></asp:TextBox><br />
-                <br />
-                <label style="margin-left: 170px;">Kullanıcı Adı</label>
-                <asp:TextBox runat="server" ID="tb_kullaniciadi" Width="350px" Height="20px" CssClass="maxbox"></asp:TextBox>
+                <span>Şifre(Tekrar)</span>:<br />
+                <asp:TextBox runat="server" ID="tb_sifretekrar" CssClass="textbox" TextMode="Password"></asp:TextBox><br />
 
                 <br />
                 <br />
@@ -117,10 +180,10 @@
 
                      <asp:Label CssClass ="girisyapildi" runat="server" ID="lbl_yonlendir"></asp:Label>
                 </asp:Panel>
-               
+               </div>
 
             </div>
-        </div>
+        
     </form>
 </body>
 </html>

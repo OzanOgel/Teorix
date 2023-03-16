@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap" rel="stylesheet">
     <link href="../AdminPanel/Assets/fontawesome/css/all.css" rel="stylesheet" />
-    <title></title>
+    <title>Teorix Giriş</title>
   
     <style>
         body{
@@ -16,8 +16,8 @@
         }
      .contanier{
          margin-top:50px;
-         margin-left:auto;
-         margin-right:auto;
+         margin-left:350px;
+         
          width:800px;
          height:600px;
          border:1px solid gray;
@@ -25,6 +25,7 @@
           border-top-left-radius:30px;
           background-color:#ffffff;
           border-radius:30px;
+         
           
      }
      
@@ -121,6 +122,9 @@
 
      }
 
+    
+   
+
     </style>
 </head>
 <body>
@@ -137,10 +141,11 @@
                     
                     <h1>Teorix</h1>
                     <div class="inc">
+                         
           <i class="fa-regular fa-envelope"></i>
             <asp:TextBox runat="server" ID="tb_eposta" CssClass="textbox" placeholder="E-Posta"></asp:TextBox>
             <br /><br />
-                        <i class="fa-solid fa-lock"></i>
+                      <br /><i class="fa-solid fa-lock"></i>
             <asp:TextBox runat="server" ID="tb_sifre" CssClass="textbox" TextMode="Password" placeholder="Şifre"></asp:TextBox><br />
             <br /><br />
             <asp:LinkButton ID="lb_GirisYap" runat="server" CssClass="girisyap" OnClick="lb_GirisYap_Click">Giriş Yap</asp:LinkButton><br />
