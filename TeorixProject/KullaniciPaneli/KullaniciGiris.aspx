@@ -25,6 +25,8 @@
           border-top-left-radius:30px;
           background-color:#ffffff;
           border-radius:30px;
+          animation-duration:1s;
+          animation-name:yandan;
          
           
      }
@@ -57,7 +59,7 @@
          height:50px;
         font-size:15pt;
        transition-property:border-bottom;
-       transition-duration:250ms;
+       transition-duration:1s;
 
          
          
@@ -120,6 +122,14 @@
          position:relative;
          font-size:17px;
 
+     }
+     @keyframes yandan{
+         from{
+margin-left:0;
+         }
+         to{
+             margin-left:350px;
+         }
      }
 
     

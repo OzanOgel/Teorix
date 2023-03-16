@@ -104,32 +104,41 @@
     font-size:13pt;
 }
 .contanierTeoriler {
-    padding:8px 8px 8px 8px;
+   
     max-height: 400px;
     min-height: 100px;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-   border-radius:10px;
-   border:2px solid gray;
-   font-family:Calibri;
+    border-radius: 10px;
+    border: 1px solid gray;
+    font-family: Calibri;
+    
+   
 }
 .teoribilgiler ul li {
     display:inline-block;
 }
 .isim {
-    margin-left: 180px;
-    font-size: 20pt;
+    clear:both;
+    padding:5px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    font-size: 14pt;
     font-family: 'Ubuntu', sans-serif;
-    margin-bottom:10px;
+    width: 100% -10px;
+    background-color: #E6E6E6;
 }
 .teoribilgiler{
     float:right;
+    font-size:10pt;
+    bottom:10px;
+    position:relative;
 }
 .teoribilgiler ul {
     text-decoration:none;
-    color:#808080bb;
-    margin-right:170px;
+   
+    
     
 
 }
@@ -180,7 +189,7 @@ auto{
     margin-right:auto;
     width:80%;
     padding: 20px;
-    border: 1px solid teal;
+    
 }
     .girisvar .forminput {
         margin-left:100px;

@@ -55,24 +55,25 @@
         <label><i style="padding-right: 20px; font-size: 20pt;" class="fa-solid fa-ban"></i>Bu Yapımla ilgili Teori Paylaşılmamış!</label>
     </asp:Panel>
     <asp:Panel runat="server" ID="pnl_Teoriler" CssClass="Teoriler">
-        <h3 style="font-size: 25pt; font-family: 'Cabin', sans-serif; margin-left: 700px;">Teoriler</h3>
+       
         <asp:Repeater ID="rp_teorilerkullanici" runat="server" OnItemCommand="rp_teorilerkullanici_ItemCommand">
             <ItemTemplate>
                 <div style="margin-top: 50px;">
-                    <div class="isim"><%# Eval("KullaniciAdi") %>:</div>
+                   
                     <div class="contanierTeoriler">
-                        <%# Eval("içerik") %>
-                    </div>
-                    <div class="teoribilgiler">
+                         <div class="isim"><i class="fa-solid fa-at"></i> <%# Eval("KullaniciAdi") %>:  <div class="teoribilgiler">
                         <ul>
                             <li>Tarih(<%# Eval("tarihstr") %>) |</li>
-                            <li> <asp:LinkButton ID="lbtn_begen" runat="server" CommandName="Select" CommandArgument='<%# Eval("ID") %>' CssClass="lnk"> Beğeni Sayısı( <%# Eval("Begeni_Sayisi") %> ) </asp:LinkButton></li>
+                            <li> <asp:LinkButton ID="LinkButton1" runat="server" CommandName="Select" CommandArgument='<%# Eval("ID") %>' CssClass="lnk"> <i style="color:red;" class="fa-solid fa-heart"></i> ( <%# Eval("Begeni_Sayisi") %> ) </asp:LinkButton></li>
                             <li><a class="lnk" href="YanitGoruntule.aspx?tid=<%# Eval("ID") %>">Yanıt Sayısı(<%# Eval("Yanit_Sayisi") %>)</a>
                                 
 
                             </li>
                         </ul>
+                    </div></div>
+                       <div style="padding:8px"> <%# Eval("içerik") %></div>
                     </div>
+                    
                 </div>
                 
             </ItemTemplate>
