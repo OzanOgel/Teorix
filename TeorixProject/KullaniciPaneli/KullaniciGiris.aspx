@@ -4,9 +4,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com"/> 
+<link href="https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap" rel="stylesheet"/>
     <link href="../AdminPanel/Assets/fontawesome/css/all.css" rel="stylesheet" />
     <title>Teorix Giriş</title>
   
@@ -25,8 +25,7 @@
           border-top-left-radius:30px;
           background-color:#ffffff;
           border-radius:30px;
-          animation-duration:1s;
-          animation-name:yandan;
+          
          
           
      }
@@ -123,14 +122,7 @@
          font-size:17px;
 
      }
-     @keyframes yandan{
-         from{
-margin-left:0;
-         }
-         to{
-             margin-left:350px;
-         }
-     }
+     
 
     
    

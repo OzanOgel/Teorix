@@ -772,7 +772,7 @@ namespace DataAccessLayer
         {
             try
             {
-                cmd.CommandText = "SELECT y.ID,y.Tur_ID,Y.Yonetici_ID,y.isim,y.resim,y.Aktiflik,t.isim,yo.Kullanici_Adi FROM Yapımlar AS y JOIN Turler AS t ON M.Tur_ID= t.ID JOIN Yoneticiler AS yo ON M.Yonetici_ID = yo.ID WHERE y.ID = @id";
+                cmd.CommandText = "SELECT y.ID,y.Tur_ID,Y.Yonetici_ID,y.isim,y.resim,y.Aktiflik,t.isim,yo.Kullanici_Adi FROM Yapımlar AS y JOIN Turler AS t ON y.Tur_ID= t.ID JOIN Yoneticiler AS yo ON y.Yonetici_ID = yo.ID WHERE y.ID = @id";
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@id", id);
                 con.Open();

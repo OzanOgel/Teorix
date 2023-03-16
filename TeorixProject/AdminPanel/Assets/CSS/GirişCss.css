@@ -1,101 +1,82 @@
 ﻿body {
-}
-*{
-    margin:0;
-    padding:0;
-}
-.textboxlar {
-    margin-top:20px;
+    margin: 0;
+    padding: 0;
+    background-color: #172530;
 }
 .contanier {
-    margin-top: 150px;
-    margin-left: 570px;
-    border-right: 1px solid #007474;
-    border-bottom: 1px solid #007474;
-    border-left: 1px solid #007474;
-    width: 20%;
-    height: 350px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-    -webkit-box-shadow: -2px 12px 38px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: -2px 12px 38px 0px rgba(0,0,0,0.75);
-    box-shadow: -2px 12px 38px 0px rgba(0,0,0,0.75);
+    width: 400px;
+    height: 300px;
+    background-color: #2A4057;
+    border-radius:3px;
+    margin:auto;
+    margin-top:200px;
 }
-.Textbox {
-    margin-left:25px;
-    margin-top: 10px;
-    display: block;
-    width: 250px;
+.title{
+    font-size:30pt;
+    color:lightgray;
+    font-family:Calibri;
+    top:20px;
+    position:relative;
+    text-align:center;
+    right:30px;
+}
+.Textbox{
+    outline:none;
     height:30px;
-    border-radius:6px;
-    border-color:orange;
+    width:300px;
+    font-size:15pt;
+   
+
 }
-.Yazi {
-    background-color: #007474;
-    width: 100%;
-    color: orange;
-    text-align: center;
-    height: 50px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    border-bottom:1px solid orange;
+.contanier i{
+    color:lightgray;
+    padding-right:10px;
+    font-size:16pt;
 }
-.Yazi h2{
-    padding:10px 0 0 0;
+.incon{
+    padding:5px;
+   left:25px;
+   position:relative;
+}
+.textboxlar {
+    top: 30px;
+    position: relative;
+}
+.Textbox::placeholder{
+    font-size:15pt;
 }
 .loginButton {
-    color: orange;
-    text-decoration: none;
-    margin-left: 100px;
-    background-color: #007474;
-    border:1px solid orange;
-    padding:10px 20px 10px 20px;
-}
-.login {
-    margin-top: 30px;
+    padding: 7px 30px;
+    background-color: #00CE71;
+    top:60px;
+    left:215px;
+    position:relative;
+    border-radius:1px;
+    text-decoration:none;
+    color:black;
+    font-weight:700;
     
 }
-.loginButton:hover {
-    color: #007474;
-    text-decoration: none;
-    margin-left: 100px;
-    background-color: orange;
-    border: 1px solid orange;
-    padding: 10px 20px 10px 20px;
-}
-.baslik {
-    color: black;
-    font-family: 'Anton', sans-serif;
-    margin-left: 541px;
-    margin-top: 20px;
+.loginButton:hover{
+    text-decoration:underline;
 }
 .hata {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left:24px;
-    padding: 20px;
-    border: 1px solid #002333;
+    width: 390px;
+    min-height: 50px;
     background-color: red;
-    color: #002333;
-    border-radius: 2px;
-    width: 70%;
-    height:20px;
-}
-.hatametin{
-    text-align:center;
-    color:white;
-    margin-left:50px;
-}
-.tittle h1{
-    top:100px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    top:121px;
+    right:30px;
     position:relative;
+    color:white;
+    font-size:16pt;
+    max-height:100px;
+    word-break:break-word;
+    padding:5px;
+    
 }
-    
-    
-   
-    
-
-
-
+    .hata .hatametin {
+        position: relative;
+        top: 10px;
+    }
