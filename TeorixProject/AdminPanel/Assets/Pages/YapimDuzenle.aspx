@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminPanel/Assets/Pages/Site1.Master" AutoEventWireup="true" CodeBehind="YapimDuzenle.aspx.cs" Inherits="TeorixProject.AdminPanel.Assets.Pages.YapimDuzenle" ValidateRequest="false" %>
+﻿<%@ Page Title="Teorix-Yapım Düzenle" Language="C#" MasterPageFile="~/AdminPanel/Assets/Pages/Site1.Master" AutoEventWireup="true" CodeBehind="YapimDuzenle.aspx.cs" Inherits="TeorixProject.AdminPanel.Assets.Pages.YapimDuzenle" ValidateRequest="false" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -21,7 +21,7 @@
                 </div>
             <div class="row">
                     <label >Makale Resim</label><br />
-                <asp:Image ID="img_resim" runat="server" Width="200"/>
+                <asp:Image  ID="img_resim" runat="server" Width="70" Height="100"/>
                     <asp:FileUpload ID="fu_resim" runat="server" CssClass="file"></asp:FileUpload>
                 </div>
             <div style="margin-top:20px;margin-left:100px;">
@@ -29,7 +29,7 @@
                     <asp:CheckBox ID="cb_Aktiflik" runat="server" Text="aktiflik"></asp:CheckBox>
                 </div>
             <div id="YapimEkle">
-            <asp:LinkButton runat="server" ID="lbtn_YapımDuzenle" CssClass="yapimekle2" OnClick="lbtn_YapımDuzenle_Click">Yapım Ekle</asp:LinkButton>
+            <asp:LinkButton runat="server" ID="lbtn_YapımDuzenle" CssClass="yapimekle2" OnClick="lbtn_YapımDuzenle_Click">Yapım Düzenle</asp:LinkButton>
             </div>
             <asp:Panel ID="pnl_Basarili" runat="server" CssClass="basarili" Visible="false"><div style="margin-top:25px;"><asp:Label ID="lbl_basarili" runat="server" CssClass="lblbasarili"></asp:Label></div></asp:Panel>
             <asp:Panel ID="pnl_Basarisiz" runat="server" CssClass="basarisiz" Visible="false"><div style="margin-top:25px;"><asp:Label ID="lbl_basarisiz" runat="server" CssClass="lblbasarisiz"></asp:Label></div></asp:Panel>

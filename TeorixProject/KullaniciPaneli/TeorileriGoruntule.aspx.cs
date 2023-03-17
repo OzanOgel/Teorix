@@ -85,10 +85,8 @@ namespace TeorixProject.KullaniciPaneli
                         
                         
                     }
-                    else
-                    {
-                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Zaten Bu Teoriyi Beğendiniz!');", true);
-                    }
+                    
+                  
                 }
                 else
                 {

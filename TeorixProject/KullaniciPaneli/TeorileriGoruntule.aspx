@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/KullaniciPaneli/Kullanicipnl.Master" AutoEventWireup="true" CodeBehind="TeorileriGoruntule.aspx.cs" Inherits="TeorixProject.KullaniciPaneli.TeorileriGoruntule" %>
+﻿<%@ Page Title="Teorix-Teoriler" Language="C#" MasterPageFile="~/KullaniciPaneli/Kullanicipnl.Master" AutoEventWireup="true" CodeBehind="TeorileriGoruntule.aspx.cs" Inherits="TeorixProject.KullaniciPaneli.TeorileriGoruntule" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
@@ -35,7 +35,10 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Panel ID="pnl_girisvar" runat="server" CssClass="girisvar">
+    <asp:ScriptManager ID="mng" runat="server"></asp:ScriptManager>
+    <asp:UpdatePanel runat="server" ID="up2">
+        <ContentTemplate>
+             <asp:Panel ID="pnl_girisvar" runat="server" CssClass="girisvar">
         <asp:TextBox ID="tb_yorum" runat="server" CssClass="forminput" TextMode="MultiLine"></asp:TextBox>
         <br />
         <br />
@@ -43,6 +46,9 @@
         <asp:Panel ID="pnl_yorumpaylasildi" runat="server" CssClass="basarili">Teori Başarı ile Paylaşıldı</asp:Panel>
         <asp:Panel ID="pnl_yorumpaylasilmadi" runat="server" CssClass="basarisiz"><asp:Label ID="lbl_hata" runat="server"></asp:Label></asp:Panel>
     </asp:Panel>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+   
     <asp:Panel ID="pnl_UyeOl" runat="server" Visible="false">
         <div style="margin-top: 50px; margin-left: auto; margin-right: auto; width: 800px; height: 100px; text-align: center; font-size: 24px; border: 1px solid red; display: flex; align-items: center; justify-content: center;">
 
@@ -59,8 +65,9 @@
         <asp:Repeater ID="rp_teorilerkullanici" runat="server" OnItemCommand="rp_teorilerkullanici_ItemCommand">
             <ItemTemplate>
                 <div style="margin-top: 50px;">
-                   
-                    <div class="contanierTeoriler">
+                   <asp:UpdatePanel ID="uppnl" runat="server">
+                       <ContentTemplate>
+                            <div class="contanierTeoriler">
                          <div class="isim"><i class="fa-solid fa-at"></i> <%# Eval("KullaniciAdi") %>:  <div class="teoribilgiler">
                         <ul>
                             <li>Tarih(<%# Eval("tarihstr") %>) |</li>
@@ -73,6 +80,9 @@
                     </div></div>
                        <div style="padding:8px"> <%# Eval("içerik") %></div>
                     </div>
+                       </ContentTemplate>
+                   </asp:UpdatePanel>
+                   
                     
                 </div>
                 

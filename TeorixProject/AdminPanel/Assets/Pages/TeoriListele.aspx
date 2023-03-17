@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminPanel/Assets/Pages/Site1.Master" AutoEventWireup="true" CodeBehind="TeoriListele.aspx.cs" Inherits="TeorixProject.AdminPanel.Assets.Pages.TeoriListele" %>
+﻿<%@ Page Title="Teori Listele" Language="C#" MasterPageFile="~/AdminPanel/Assets/Pages/Site1.Master" AutoEventWireup="true" CodeBehind="TeoriListele.aspx.cs" Inherits="TeorixProject.AdminPanel.Assets.Pages.TeoriListele" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

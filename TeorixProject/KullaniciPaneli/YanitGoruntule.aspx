@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/KullaniciPaneli/Kullanicipnl.Master" AutoEventWireup="true" CodeBehind="YanitGoruntule.aspx.cs" Inherits="TeorixProject.KullaniciPaneli.Yanitlar" %>
+﻿<%@ Page Title="Teorix-Yanıtlar" Language="C#" MasterPageFile="~/KullaniciPaneli/Kullanicipnl.Master" AutoEventWireup="true" CodeBehind="YanitGoruntule.aspx.cs" Inherits="TeorixProject.KullaniciPaneli.Yanitlar" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
    
     <style>
@@ -30,19 +30,15 @@
             margin-left:auto;
             margin-right:auto;
         }
-        }
+       .teoribilgiler{
+           right:5px;
+           bottom:40px;
+           position:relative;
+       }
+        
     </style>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const hearts = document.querySelectorAll(".heart");
-            hearts.forEach(heart => {
-                heart.addEventListener("click", function () {
-                    this.classList.toggle("active");
-                });
-            });
-        });
-    </script>
+  
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -67,19 +63,23 @@
         <asp:Repeater ID="rp_Yanitlarkullanici" runat="server" OnItemCommand="rp_Yanitlarkullanici_ItemCommand">
             <ItemTemplate>
                 <div style="margin-top: 50px;">
-                    <div class="isim"><%# Eval("Uye") %>:</div>
+                    
                     <div class="contanierTeoriler">
-                        <%# Eval("icerik") %>
-                    </div>
-                    <div class="teoribilgiler">
+                        <div class="isim"> <i class="fa-solid fa-at"></i><%# Eval("Uye") %>:</div>
+                        <div class="teoribilgiler">
                         <ul>
-                            <li>Tarih(<%# Eval("tarihstr") %>) |</li>
+                            <li>Tarih(<%# Eval("tarihstr") %>)</li>
                             
 
-                            </li>
+                           
                         </ul>
                     </div>
+                         <div style="padding:8px"> <%# Eval("icerik") %></div>
                 </div>
+                        
+                    </div>
+                    
+                
             </ItemTemplate>
         </asp:Repeater>
     </asp:Panel>

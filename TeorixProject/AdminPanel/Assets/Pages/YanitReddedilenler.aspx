@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminPanel/Assets/Pages/Site1.Master" AutoEventWireup="true" CodeBehind="YanitReddedilenler.aspx.cs" Inherits="TeorixProject.AdminPanel.Assets.Pages.YanitReddedilenler" %>
+﻿<%@ Page Title="Teorix-Reddedilen Yanıtlar" Language="C#" MasterPageFile="~/AdminPanel/Assets/Pages/Site1.Master" AutoEventWireup="true" CodeBehind="YanitReddedilenler.aspx.cs" Inherits="TeorixProject.AdminPanel.Assets.Pages.YanitReddedilenler" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

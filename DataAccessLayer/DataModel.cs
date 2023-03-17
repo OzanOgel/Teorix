@@ -336,7 +336,7 @@ namespace DataAccessLayer
             {
                 cmd.CommandText = "insert into Uyeler(Eposta,şifre,isim,SoyIsim,KayıtOlmaTarihi,ToplamTeoriSayısı,aktiflik,Kullanici_Adi) values(@Eposta,@sifre,@isim,@SoyIsim,@KayıtOlmaTarihi,@ToplamTeoriSayısı,1,@Kullanici_Adi)";
                 cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@Eposta",u.KullaniciAdi);
+                cmd.Parameters.AddWithValue("@Eposta",u.Eposta);
                 cmd.Parameters.AddWithValue("@sifre",u.şifre);
                 cmd.Parameters.AddWithValue("@isim",u.isim);
                 cmd.Parameters.AddWithValue("@SoyIsim",u.soyisim);

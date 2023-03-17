@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminPanel/Assets/Pages/Site1.Master" AutoEventWireup="true" CodeBehind="UyelerPasif.aspx.cs" Inherits="TeorixProject.AdminPanel.Assets.Pages.WebForm2" %>
+﻿<%@ Page Title="Teorix-Pasif Uyeler" Language="C#" MasterPageFile="~/AdminPanel/Assets/Pages/Site1.Master" AutoEventWireup="true" CodeBehind="UyelerPasif.aspx.cs" Inherits="TeorixProject.AdminPanel.Assets.Pages.WebForm2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

@@ -16,7 +16,7 @@ namespace TeorixProject.KullaniciPaneli
             {
                    
                 Uyeler u = (Uyeler)Session["Uyeler"];
-                lbl_username0.Text = "<i class='fa-solid fa-user'></i>" + u.KullaniciAdi;
+                lbl_username0.Text = "<i class='fa-solid fa-user'></i> " + u.KullaniciAdi;
                 pnl_girisvar.Visible = true;
                 pnl_girisyok.Visible = false;
             }

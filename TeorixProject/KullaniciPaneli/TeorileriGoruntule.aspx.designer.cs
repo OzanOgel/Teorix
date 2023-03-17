@@ -15,6 +15,24 @@ namespace TeorixProject.KullaniciPaneli
     {
 
         /// <summary>
+        /// mng control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager mng;
+
+        /// <summary>
+        /// up2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel up2;
+
+        /// <summary>
         /// pnl_girisvar control.
         /// </summary>
         /// <remarks>

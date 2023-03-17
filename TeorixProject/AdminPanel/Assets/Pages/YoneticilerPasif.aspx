@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminPanel/Assets/Pages/Site1.Master" AutoEventWireup="true" CodeBehind="YoneticilerPasif.aspx.cs" Inherits="TeorixProject.AdminPanel.Assets.Pages.YoneticilerPasif" %>
+﻿<%@ Page Title="Teorix-Pasif Yoneticiler" Language="C#" MasterPageFile="~/AdminPanel/Assets/Pages/Site1.Master" AutoEventWireup="true" CodeBehind="YoneticilerPasif.aspx.cs" Inherits="TeorixProject.AdminPanel.Assets.Pages.YoneticilerPasif" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

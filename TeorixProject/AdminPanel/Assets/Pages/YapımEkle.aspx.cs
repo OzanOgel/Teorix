@@ -84,7 +84,7 @@ namespace TeorixProject.AdminPanel.Assets.Pages
                     {
                         pnl_Basarisiz.Visible = true;
                         pnl_Basarili.Visible = false;
-                        lbl_basarisiz.Text = "Makale Eklenemedi";
+                        lbl_basarisiz.Text = "Yapım Ekleme Başarısız";
 
                     }
                 }

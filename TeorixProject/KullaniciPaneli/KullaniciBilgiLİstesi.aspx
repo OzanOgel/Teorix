@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/KullaniciPaneli/Kullanicipnl.Master" AutoEventWireup="true" CodeBehind="KullaniciBilgiLİstesi.aspx.cs" Inherits="TeorixProject.KullaniciPaneli.KullaniciBilgiLİstesi" %>
+﻿<%@ Page Title="Teorix-Kullanıcı Bilgileri" Language="C#" MasterPageFile="~/KullaniciPaneli/Kullanicipnl.Master" AutoEventWireup="true" CodeBehind="KullaniciBilgiLİstesi.aspx.cs" Inherits="TeorixProject.KullaniciPaneli.KullaniciBilgiLİstesi" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

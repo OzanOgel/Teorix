@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminPanel/Assets/Pages/Site1.Master" AutoEventWireup="true" CodeBehind="YapımListele.aspx.cs" Inherits="TeorixProject.AdminPanel.Assets.Pages.YapımListele" %>
+﻿<%@ Page Title="Teorix-Yapım Listele" Language="C#" MasterPageFile="~/AdminPanel/Assets/Pages/Site1.Master" AutoEventWireup="true" CodeBehind="YapımListele.aspx.cs" Inherits="TeorixProject.AdminPanel.Assets.Pages.YapımListele" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
